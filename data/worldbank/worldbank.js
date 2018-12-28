@@ -1,3 +1,4 @@
+
 const WORLDBANK = {
   "PER": {
     "indicators": [
@@ -36721,3 +36722,4 @@ const WORLDBANK = {
   }
 }
 ;;
+window.WORLDBANK=WORLDBANK;
