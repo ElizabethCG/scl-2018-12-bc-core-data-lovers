@@ -6,6 +6,7 @@ describe('example', () => {
     expect(typeof example).toBe('function');
   });
 
+
   it('returns `example`', () => {
     expect(example()).toBe('example');
   });
