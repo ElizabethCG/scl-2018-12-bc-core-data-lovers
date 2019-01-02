@@ -1,14 +1,17 @@
-window.onload = () => {
-  
+ window.onload = () => {
+
     document.getElementById('paises').style.display='none';
   /* esto debería estar dentro de la función que mostrará los paises */
   const goPaises = document.getElementById('clickPaises');
+
   goPaises.addEventListener('click', () => {
   document.getElementById('index').style.display ='none';
-  document.getElementById('paises').style.display ='block';  
+  document.getElementById('paises').style.display ='block';
   });
 
-document.getElementById("btnLlamarDatos").addEventListener("click",
+
+
+document.getElementById("clickPaises").addEventListener("click",
   (evento)=> {
     evento.preventDefault();
 
@@ -18,21 +21,21 @@ let paises=[[datas.PER,datas.MEX,datas.BRA,datas.CHL],
             ["Perú","México","Brasil","Chile"]];
 
 
-document.getElementById('paises').innerHTML = ''; // limpio el div cada vez que se hace click??? PARA QUE SE LIMPIABA? QUÉ PASA SI NO SE LIMPIA?
+document.getElementById('paisesEc').innerHTML = ''; // limpio el div cada vez que se hace click??? PARA QUE SE LIMPIABA? QUÉ PASA SI NO SE LIMPIA?
 
 
 // Para mostrar la lista de países en el menú de selección
 for (let i=0; i<4;i++){
 let mostrarPaises=(paises[1][i]);
-document.getElementById ("paises").innerHTML += "<option value="+ i+"  id=paises"+i+">" + mostrarPaises + "</option>";
+document.getElementById ("paisesEc").innerHTML += "<option value="+ i+"  id=paisesEc"+i+">" + mostrarPaises + "</option>";
 }
 
 
-document.getElementById("paises").addEventListener("click",
+document.getElementById("paisesEc").addEventListener("click",
   (evento)=> {
     evento.preventDefault();
 
-let paisElegido = document.getElementById ("paises").value;
+let paisElegido = document.getElementById ("paisesEc").value;
 // console.log(paisElegido);
 
 
@@ -62,7 +65,7 @@ document.getElementById("indicadores").addEventListener("click",
     let indicadorElegido = document.getElementById ("indicadores").value;
     // console.log(indicadorElegido);
 
-let paisElegido = document.getElementById ("paises").value;
+let paisElegido = document.getElementById ("paisesEc").value;
   let paisBuscar=(paises[0][paisElegido]);
 
 let nombreIndicador = paisBuscar.indicators[indicadorElegido];
@@ -116,4 +119,4 @@ let almacenarObjetoData = nombreIndicador.data;
 })
 
 })
-
+}
