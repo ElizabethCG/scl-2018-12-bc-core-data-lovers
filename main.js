@@ -1,4 +1,12 @@
-
+window.onload = () => {
+  
+    document.getElementById('paises').style.display='none';
+  /* esto debería estar dentro de la función que mostrará los paises */
+  const goPaises = document.getElementById('clickPaises');
+  goPaises.addEventListener('click', () => {
+  document.getElementById('index').style.display ='none';
+  document.getElementById('paises').style.display ='block';  
+  });
 
 document.getElementById("btnLlamarDatos").addEventListener("click",
   (evento)=> {
@@ -8,7 +16,6 @@ let datas = window.WORLDBANK;
 
 let paises=[[datas.PER,datas.MEX,datas.BRA,datas.CHL],
             ["Perú","México","Brasil","Chile"]];
-
 
 
 document.getElementById('paises').innerHTML = ''; // limpio el div cada vez que se hace click??? PARA QUE SE LIMPIABA? QUÉ PASA SI NO SE LIMPIA?
@@ -104,18 +111,9 @@ let almacenarObjetoData = nombreIndicador.data;
       otroObjeto[i]
       document.getElementById ("root").innerHTML += "<p>" + otroObjeto[i].year +" "+ otroObjeto[i].valor +"<br>" + "</p>";
 }
-
-
-
 })
 })
 })
 
-
 })
 
-
-
-      // let llamarDatos =window.filterData(data,condition);
-      //
-      //     document.getElementById ("root").innerHTML ="<p2> El retorno es: "    + (window.example()) +     "</p2>";

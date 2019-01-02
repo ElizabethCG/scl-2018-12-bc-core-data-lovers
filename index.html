@@ -1,13 +1,139 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <title>Data bank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    <div>
+<body>
+  <div class="container">
+    <!-- header -->
+    <header class="row py-2">
+      <div class="col-12">
+        <a href="index.html">
+          <img src="img/logo.png" alt="logo" width="200">
+        </a>
+      </div>
+    </header>
+    <!-- menú de navegación -->
+    <nav class="row">
+      <div class="col-12">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">INICIO</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">PERFILES NACIONALES</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">PAISES</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">ESTADISTICAS E INDICADORES</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">VINCULOS</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">ACERCA DE</a>
+          </li>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!---------------------------- INDEX---------------------->
+    <section id="index" class="row my-4">
+
+      <div class="col-12 mb-3">
+        <h1 class="text-center">Acceda a la información estadística de América Latina del Banco Mundial</h1>
+      </div>
+
+      <main class="col-12">
+        <div class="row">
+          <!-- primer recuadro -->
+          <div class="col-4 py-3 pl-3 border">
+            <div class="col-12">
+              <h3 class="text-left">
+                <img src="img/perfiles_nacionales.jpg" alt="icono perfiles nacionales" width="46">
+                PERFILES NACIONALES</h3>
+            </div>
+            <div>
+              <p class="pl-3">Acceda a los perfiles nacionales con una selección de indicadores de los paises
+                de América Latina</p>
+            </div>
+            <div>
+              <img class="img-fluid" src="img/estadisticas.png" alt="">
+            </div>
+          </div>
+
+          <!-- segundo recuadro -->
+          <div class="col-4 py-3 pl-3 border" id="clickPaises">
+            <div class="col-12">
+              <h3>
+                <img src="img/paises.png" alt="icono de países" width="46">
+                PAISES</h3>
+            </div>
+            <p class="pl-3">Acceda a la lista de paises de latinoamerica y selecciona los indicadores</p>
+            <div>
+              <img class="img-fluid" src="img/estadisticas.png" alt="">
+            </div>
+          </div>
+
+          <!-- tercer recuadro -->
+          <div class="col-4 py-3 pl-3 border">
+            <div class="col-12">
+              <h3>
+                <img src="img/estadisticas_indicadores.jpg" alt="ícono de perfiles nacionales" width="46">
+                ESTADISTICAS E INDICADORES</h3>
+            </div>
+            <p class="pl-3">Acceda a más de 140 estadisticas e indicadores comparables internacionalmente comparables
+              de los países
+              de Latino América</p>
+            <div>
+              <img class="img-fluid" src="img/estadisticas.png" alt="">
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!---------------------------- PAISES---------------------->
+
+    <section id="paises" class="row my-4">
+      <main class="col-12">
+        <div class="col-12">
+          <h1>
+            <img src="img/paises.png" alt="icono de países" width="46">
+            PAISES</h1>
+        </div>
+        <hr>
+        <ul>
+          <li>Argentina</li>
+          <li>Bolivia</li>
+          <li>Brasil</li>
+          <li>Chile</li>
+          <li>Colombia</li>
+          <li>Costa Rica</li>
+          <li>Cuba</li>
+          <li>Ecuador</li>
+          <li>El Salvador</li>
+          <li>Guatemala</li>
+          <li>Haití</li>
+          <li>Honduras</li>
+          <li>México</li>
+          <li>Nicaragua</li>
+          <li>Panamá</li>
+          <li>Paraguay</li>
+          <li>Perú</li>
+          <li>República Dominicana</li>
+          <li>Uruguay</li>
+          <li>Venezuela</li>
+        </ul>
+         <div>
       <input type="button" id="btnLlamarDatos" value=" Llamar datos " />
 
     </div>
@@ -27,13 +153,35 @@
 
     <div id="root">
     </div>
+      </main>
+    </section>
 
-    <!-- <script src="./data/injuries/injuries.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-    <!-- <script src="./data/steam/steam.js"></script> -->
-    <script src="./data/worldbank/worldbank.js"></script>
-    <!-- <script src="./data/lol/lol.js"></script> -->
-    <script src="data.js"></script>
-    <script src="main.js"></script>
-  </body>
+
+
+
+    <!-- footer -->
+    <footer class="row">
+      <div class="col">
+        <img src="img/logo.png" alt="logo del banco" width="200">
+      </div>
+    </footer>
+
+
+
+  </div>
+
+
+  <div id="root"></div>
+  <!-- <script src="./data/injuries/injuries.js"></script> -->
+  <!-- <script src="./data/pokemon/pokemon.js"></script> -->
+  <!-- <script src="./data/steam/steam.js"></script> -->
+  <script src="./data/worldbank/worldbank.js"></script>
+  <!-- <script src="./data/lol/lol.js"></script> -->
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+  <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
+  <script src="bootstrap/js/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
 </html>
