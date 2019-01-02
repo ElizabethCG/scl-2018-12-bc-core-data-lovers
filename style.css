@@ -1,0 +1,23 @@
+body {
+  background-color: #f2f3f6;
+  padding-bottom: 70px;
+}
+nav {
+  background-color: #002244;
+  
+}
+
+.nav-link {
+ 
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+
+color: #FFFFFF;
+}
+
+footer {
+  background-color: #262626;
+}
