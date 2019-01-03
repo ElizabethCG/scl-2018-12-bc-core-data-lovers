@@ -11,9 +11,12 @@
 
 
 
+// AQUÍ EMPIEZA CODIGO ELIZABETH
+
 document.getElementById("clickPaises").addEventListener("click",
   (evento)=> {
     evento.preventDefault();
+
 
 let datas = window.WORLDBANK;
 
@@ -21,7 +24,8 @@ let paises=[[datas.PER,datas.MEX,datas.BRA,datas.CHL],
             ["Perú","México","Brasil","Chile"]];
 
 
-document.getElementById('paisesEc').innerHTML = ''; // limpio el div cada vez que se hace click??? PARA QUE SE LIMPIABA? QUÉ PASA SI NO SE LIMPIA?
+document.getElementById('paisesEc').innerHTML = ''; // limpio el div cada vez que se hace click
+
 
 
 // Para mostrar la lista de países en el menú de selección
@@ -36,7 +40,7 @@ document.getElementById("paisesEc").addEventListener("click",
     evento.preventDefault();
 
 let paisElegido = document.getElementById ("paisesEc").value;
-// console.log(paisElegido);
+
 
 
 document.getElementById("btnLlamarIndicadores").addEventListener("click",
@@ -45,27 +49,34 @@ document.getElementById("btnLlamarIndicadores").addEventListener("click",
 
     document.getElementById('indicadores').innerHTML = '';
 
-    for (let i=0; i<139;i++){
-    // let mostrarPaises=(paises[1][i]);
+
+// AQUÍ VA LA LLAMADA A LA FUNCIÓN
+
     let paisBuscar=(paises[0][paisElegido]);
-    // console.log(paisBuscar);
+    let retornoArray=window.nombreIndicadores(paisBuscar); //llamada a la función nombreIndicadores y retorno de array con el total de indicadores pra un país seleccionado
 
-    let nombreIndicador = paisBuscar.indicators[i];
-    //  console.log(nombreIndicador);
-    // console.log(nombreIndicador.indicatorName);
-
-document.getElementById ("indicadores").innerHTML += "<option value="+ i+"  id=indicadores"+i+">" + nombreIndicador.indicatorName +"<br>" + "</option>";
-    // document.getElementById ("root").innerHTML +=  nombreIndicador.indicatorName +"<br>";
+    for (let i=0; i<139;i++){
+      document.getElementById ("indicadores").innerHTML += "<option value="+ i+"  id=indicadores"+i+">" + retornoArray[i] +"<br>" + "</option>";
     }
+
+
 
 document.getElementById("indicadores").addEventListener("click",
       (evento)=> {
         evento.preventDefault();
 
     let indicadorElegido = document.getElementById ("indicadores").value;
-    // console.log(indicadorElegido);
+
 
 let paisElegido = document.getElementById ("paisesEc").value;
+
+
+
+
+
+
+// AQUI VA LA LLAMADA A LA FUNCION QUE TRAE DATOS COMPLETOS
+
   let paisBuscar=(paises[0][paisElegido]);
 
 let nombreIndicador = paisBuscar.indicators[indicadorElegido];
@@ -84,14 +95,12 @@ let almacenarObjetoData = nombreIndicador.data;
     nuevoObjeto.valor=mirarYear ;
 
     otroObjeto[m] = nuevoObjeto;
-    //
-    // console.log(otroObjeto[l]);
-    //
-    //
-    // console.log(k,mirarYear);}
+
     m=m+1;
 
     }
+
+// FUNCION QUE ORDENA
 
     otroObjeto.sort(function (a, b) {
       if (a.year > b.year) {
@@ -108,7 +117,7 @@ let almacenarObjetoData = nombreIndicador.data;
 
 
     }
-    // console.log(otroObjeto);
+
     document.getElementById('root').innerHTML = '';
     for (let i=0; i<otroObjeto.length;i++){
       otroObjeto[i]
