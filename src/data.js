@@ -1,6 +1,4 @@
 
-
-
 // función donde recorreré el arreglo de objetos para acceder a su propiedad name
 const nombreIndicadores = (paisBuscar) => {
   let nombres = []; // arreglo vacío donde pushearé los nombres de indicadores.
@@ -14,10 +12,52 @@ window.nombreIndicadores = nombreIndicadores;
 
 
 
-const filterData = (data, condition) => {
-return "Terminó ejecución de la función fiterData";
+const datosPorYear = (paisBuscar,nombreIndicador,almacenarObjetoData) => {
+  let m=0;
+    let otroObjeto = [];
+    for (let k=1960; k<=2017 ; k++){
+
+       let mirarYear=(almacenarObjetoData[k]);
+       if (mirarYear===""){
+         continue;
+       }else{
+  let nuevoObjeto = {year : 0 , valor : 0};
+  nuevoObjeto.year = k;
+  nuevoObjeto.valor=mirarYear ;
+  otroObjeto[m] = nuevoObjeto;
+  m=m+1;
+  }
 }
-window.fiterData = filterData;
+  return otroObjeto; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
+}
+window.datosPorYear = datosPorYear;
+
+
+
+
+
+// FUNCION DADA PARA TRABAJAR SEGUN README
+// const filterData = (data, condition) => {
+// return "Terminó ejecución de la función fiterData";
+// }
+// window.fiterData = filterData;
+
+
+
+// FUNCION QUE ORDENA
+
+    // retornoDatosYear.sort(function (a, b) {
+    //   if (a.year > b.year) {
+    //     return -1;
+    //   }
+    //   if (a.year < b.year) {
+    //     return 1;
+    //   }
+    //   // a must be equal to b
+    //   return 0;
+    //
+    //
+    // });
 
 
 
