@@ -66,66 +66,43 @@ document.getElementById("indicadores").addEventListener("click",
         evento.preventDefault();
 
     let indicadorElegido = document.getElementById ("indicadores").value;
+    let paisElegido = document.getElementById ("paisesEc").value;
+    let paisBuscar=(paises[0][paisElegido]);
+    let nombreIndicador = paisBuscar.indicators[indicadorElegido];
+    let almacenarObjetoData = nombreIndicador.data;
+    let retornoDatosYear=window.datosPorYear(paisBuscar,nombreIndicador,almacenarObjetoData); //llamada a la función nombreIndicadores y retorno de array con el total de indicadores pra un país seleccionado
 
 
-let paisElegido = document.getElementById ("paisesEc").value;
+    document.getElementById('root').innerHTML = '';
+    for (let i=0; i<retornoDatosYear.length;i++){
+      retornoDatosYear[i]
+      document.getElementById ("root").innerHTML += "<p>" + retornoDatosYear[i].year +" "+ retornoDatosYear[i].valor +"<br>" + "</p>";
+}
 
 
 
 
 
+})
+})
+})
 
-// AQUI VA LA LLAMADA A LA FUNCION QUE TRAE DATOS COMPLETOS
+})
+}
 
-  let paisBuscar=(paises[0][paisElegido]);
 
-let nombreIndicador = paisBuscar.indicators[indicadorElegido];
-let almacenarObjetoData = nombreIndicador.data;
-    let m=0;
-      let otroObjeto = [];
-      for (let k=1960; k<=2017 ; k++){
-
-         let mirarYear=(almacenarObjetoData[k]);
-         if (mirarYear===""){
-           continue;
-         }else{
-
-    let nuevoObjeto = {year : 0 , valor : 0};
-    nuevoObjeto.year = k;
-    nuevoObjeto.valor=mirarYear ;
-
-    otroObjeto[m] = nuevoObjeto;
-
-    m=m+1;
-
-    }
 
 // FUNCION QUE ORDENA
 
-    otroObjeto.sort(function (a, b) {
-      if (a.year > b.year) {
-        return -1;
-      }
-      if (a.year < b.year) {
-        return 1;
-      }
-      // a must be equal to b
-      return 0;
-
-
-    });
-
-
-    }
-
-    document.getElementById('root').innerHTML = '';
-    for (let i=0; i<otroObjeto.length;i++){
-      otroObjeto[i]
-      document.getElementById ("root").innerHTML += "<p>" + otroObjeto[i].year +" "+ otroObjeto[i].valor +"<br>" + "</p>";
-}
-})
-})
-})
-
-})
-}
+    // retornoDatosYear.sort(function (a, b) {
+    //   if (a.year > b.year) {
+    //     return -1;
+    //   }
+    //   if (a.year < b.year) {
+    //     return 1;
+    //   }
+    //   // a must be equal to b
+    //   return 0;
+    //
+    //
+    // });
