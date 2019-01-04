@@ -34,30 +34,27 @@ window.datosPorYear = datosPorYear;
 
 
 
-
-
-// FUNCION DADA PARA TRABAJAR SEGUN README
-// const filterData = (data, condition) => {
-// return "Terminó ejecución de la función fiterData";
-// }
-// window.fiterData = filterData;
-
-
-
 // FUNCION QUE ORDENA
+const ordenarDatosPorYear = (retornoDatosYear) => {
 
-    // retornoDatosYear.sort(function (a, b) {
-    //   if (a.year > b.year) {
-    //     return -1;
-    //   }
-    //   if (a.year < b.year) {
-    //     return 1;
-    //   }
-    //   // a must be equal to b
-    //   return 0;
-    //
-    //
-    // });
+  let arrayOrdenado=retornoDatosYear;
+
+    arrayOrdenado.sort(function (a, b) {
+      if (a.year > b.year) {
+        return -1;
+      }
+      if (a.year < b.year) {
+        return 1;
+      }
+      // a must be equal to b
+      return 0;
+
+
+    });
+
+    return arrayOrdenado; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
+  }
+  window.ordenarDatosPorYear = ordenarDatosPorYear;
 
 
 
@@ -72,3 +69,10 @@ const computeStats = (data) => {
 return "Terminó ejecución de la función computeStats";
 }
 window.computeStats = computeStats;
+
+
+// FUNCION DADA COMO EJEMPLO PARA EMPEZAR A TRABAJAR SEGUN README
+// const filterData = (data, condition) => {
+// return "Terminó ejecución de la función fiterData";
+// }
+// window.fiterData = filterData;
