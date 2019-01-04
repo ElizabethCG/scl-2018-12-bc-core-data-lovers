@@ -79,28 +79,33 @@ function screens() {
 
 
 
+document.getElementById("btnOrdenar").addEventListener("click",
+      (evento)=> {
+        evento.preventDefault();
+
+        
+        let retornoDatosYearOrdenado=window.ordenarDatosPorYear(retornoDatosYear);
+
+
+document.getElementById('root').innerHTML = '';
+for (let i=0; i<retornoDatosYearOrdenado.length;i++){
+  retornoDatosYearOrdenado[i]
+  document.getElementById ("root").innerHTML += "<p>" + retornoDatosYear[i].year +" "+ retornoDatosYear[i].valor +"<br>" + "</p>";
+}
+
+
+
+})
 
 
                 })
             })
         })
+  })
+}
 
-    })
+   
 
 
 
 
-// FUNCION QUE ORDENA
-
-    // retornoDatosYear.sort(function (a, b) {
-    //   if (a.year > b.year) {
-    //     return -1;
-    //   }
-    //   if (a.year < b.year) {
-    //     return 1;
-    //   }
-    //   // a must be equal to b
-    //   return 0;
-    //
-    //
-    // });
