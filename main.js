@@ -1,12 +1,16 @@
-window.onload = () => {
+window.onload = screens
 
-  document.getElementById('paises').style.display = 'none';
-  /* esto debería estar dentro de la función que mostrará los paises */
+function screens() {
+
+  document.getElementById('seccionPaises').style.display = 'none';
+  document.getElementById('seccionIndicadores').style.display = 'none';
+  document.getElementById('seccionEstadisticas').style.display = 'none';
+};
+
   const goPaises = document.getElementById('clickPaises');
-
   goPaises.addEventListener('click', () => {
-    document.getElementById('index').style.display = 'none';
-    document.getElementById('paises').style.display = 'block';
+    document.getElementById('seccionIndex').style.display = 'none';
+    document.getElementById('seccionPaises').style.display = 'block';
   });
 
 
@@ -46,7 +50,7 @@ window.onload = () => {
           document.getElementById("btnLlamarIndicadores").addEventListener("click",
             (evento) => {
               evento.preventDefault();
-              
+
               document.getElementById('indicadores').innerHTML = '';
               // AQUÍ VA LA LLAMADA A LA FUNCIÓN
               let paisBuscar = paises[0][paisElegido];
@@ -82,7 +86,7 @@ window.onload = () => {
         })
 
     })
-}
+
 
 
 
