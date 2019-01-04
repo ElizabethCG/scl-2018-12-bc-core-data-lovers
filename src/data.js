@@ -1,8 +1,9 @@
 
 // función donde recorreré el arreglo de objetos para acceder a su propiedad name
-const nombreIndicadores = (paisBuscar) => {
+//Función para filtrar
+const nombreIndicadores = (paisBuscar) => {   //paisBuscar (condición)//
   let nombres = []; // arreglo vacío donde pushearé los nombres de indicadores.
-  for (let i = 0; i<139;i++) {
+  for (let i = 0; i < paisBuscar.indicators.length; i++) { //paisBuscar 
     let nombreIndicador = paisBuscar.indicators[i];
     nombres.push(nombreIndicador.indicatorName);
   }
@@ -11,26 +12,23 @@ const nombreIndicadores = (paisBuscar) => {
 window.nombreIndicadores = nombreIndicadores;
 
 
-
-const datosPorYear = (paisBuscar,nombreIndicador,almacenarObjetoData) => {
-  let m=0;
-    let otroObjeto = [];
-    for (let k=1960; k<=2017 ; k++){
-
-       let mirarYear=(almacenarObjetoData[k]);
-       if (mirarYear===""){
-         continue;
-       }else{
-  let nuevoObjeto = {year : 0 , valor : 0};
-  nuevoObjeto.year = k;
-  nuevoObjeto.valor=mirarYear ;
-  otroObjeto[m] = nuevoObjeto;
-  m=m+1;
+//Filtrar por país y nombre del indicador
+const dataForYear = (paisBuscar, nombreIndicador, almacenarObjetoData) => {
+  let otroObjeto = [];
+  for (let k = 1960; k <= 2017; k++) { //aquí está buscando el atributo dentro de data (que está dentro de otra data)
+    let mirarYear = (almacenarObjetoData[k]);
+    if (mirarYear === "") {
+      continue; //si pasa eso que no haga nada
+    } else {
+      let nuevoObjeto = { year: 0, valor: 0 };  //inicializando un objeto
+      nuevoObjeto.year = k;
+      nuevoObjeto.valor = mirarYear;
+      otroObjeto.push(nuevoObjeto);
+    }
   }
-}
   return otroObjeto; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
 }
-window.datosPorYear = datosPorYear;
+window.dataForYear = dataForYear;
 
 
 
@@ -38,6 +36,7 @@ window.datosPorYear = datosPorYear;
 const ordenarDatosPorYear = (retornoDatosYear) => {
 
   let arrayOrdenado=retornoDatosYear;
+
 
     arrayOrdenado.sort(function (a, b) {
       if (a.year > b.year) {
@@ -49,7 +48,6 @@ const ordenarDatosPorYear = (retornoDatosYear) => {
       // a must be equal to b
       return 0;
 
-
     });
 
     return arrayOrdenado; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
@@ -58,15 +56,14 @@ const ordenarDatosPorYear = (retornoDatosYear) => {
 
 
 
-
 const sortData = (data, sortBy, sortOrder) => {
-return "Terminó ejecución de la función sortData";
+  return "Terminó ejecución de la función sortData";
 }
 window.sortData = sortData;
 
 
 const computeStats = (data) => {
-return "Terminó ejecución de la función computeStats";
+  return "Terminó ejecución de la función computeStats";
 }
 window.computeStats = computeStats;
 
