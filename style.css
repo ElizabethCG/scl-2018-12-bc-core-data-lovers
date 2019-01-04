@@ -11,6 +11,7 @@ nav {
   
 }
 
+
 .nav-link {
  
   font-style: normal;
@@ -18,13 +19,20 @@ nav {
   line-height: normal;
   font-size: 14px;
   letter-spacing: 0.03em;
-
-color: #FFFFFF;
+  color: #FFFFFF;
 }
 
-main div div {
+.nav-link:hover {
+  color: #22A6F5;
+}
+
+.main-div {
 background-color: #FFFFFF;
 cursor: pointer;
+}
+
+.main-div:hover {
+  background-color: #e4e9ec;
 }
 
 .border {
