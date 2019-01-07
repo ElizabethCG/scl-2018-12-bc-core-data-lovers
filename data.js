@@ -3,7 +3,7 @@
 //Función para filtrar
 const nombreIndicadores = (paisBuscar) => {   //paisBuscar (condición)//
   let nombres = []; // arreglo vacío donde pushearé los nombres de indicadores.
-  for (let i = 0; i < paisBuscar.indicators.length; i++) { //paisBuscar 
+  for (let i = 0; i < paisBuscar.indicators.length; i++) { //paisBuscar
     let nombreIndicador = paisBuscar.indicators[i];
     nombres.push(nombreIndicador.indicatorName);
   }
@@ -26,6 +26,8 @@ const dataForYear = (paisBuscar, nombreIndicador, almacenarObjetoData) => {
       otroObjeto.push(nuevoObjeto);
     }
   }
+  console.log(otroObjeto.length);
+ 
   return otroObjeto; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
 }
 window.dataForYear = dataForYear;
@@ -56,20 +58,25 @@ const ordenarDatosPorYear = (retornoDatosYear) => {
 
 
 
-const sortData = (data, sortBy, sortOrder) => {
-  return "Terminó ejecución de la función sortData";
-}
-window.sortData = sortData;
+
+// FUNCION QUE CALCULA EL PROMEDIO DE LOS DATOS
+
+const computeStats = (retornoDatosYear) => {
+
+const numbers = retornoDatosYear;
+let arr = [];
+numbers.forEach((currentValue) => {
+  return arr.push(currentValue.valor)
+})
 
 
-const computeStats = (data) => {
-  return "Terminó ejecución de la función computeStats";
-}
-window.computeStats = computeStats;
+
+  const newNumbers = arr.reduce((elementoAnterior, elementoActual) => {
+  return (elementoAnterior + elementoActual);
+});
 
 
-// FUNCION DADA COMO EJEMPLO PARA EMPEZAR A TRABAJAR SEGUN README
-// const filterData = (data, condition) => {
-// return "Terminó ejecución de la función fiterData";
-// }
-// window.fiterData = filterData;
+    return newNumbers/arr.length;
+  }
+
+  window.computeStats = computeStats;
