@@ -1,5 +1,5 @@
 
-// función donde recorreré el arreglo de objetos para acceder a su propiedad name
+//Función donde recorreré el arreglo de objetos para acceder a su propiedad name
 //Función para filtrar
 const nombreIndicadores = (paisBuscar) => {   //paisBuscar (condición)//
   let nombres = []; // arreglo vacío donde pushearé los nombres de indicadores.
