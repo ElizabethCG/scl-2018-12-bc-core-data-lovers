@@ -8,43 +8,48 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <title>Data bank</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
 </head>
 
 <body>
 
   <!-- header -->
   <header class="row py-2 pl-5">
-    <div class="col-12">
-      <a href="index.html">
-        <img src="img/logo.png" alt="logo" width="200">
-      </a>
-    </div>
+    <div class="container">
+      <div class="col-12">
+        <a href="index.html">
+          <img src="img/logo.png" alt="logo" width="200">
+        </a>
+      </div>
   </header>
+  </div>
   <!-- menú de navegación -->
   <nav class="row">
-    <div class="col-12 pl-5">
-      <ul class="nav">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">INICIO</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">PERFILES NACIONALES</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">PAISES</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">ESTADISTICAS E INDICADORES</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">VINCULOS</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">ACERCA DE</a>
-        </li>
-        </li>
-      </ul>
+    <div class="container">
+      <div class="col-12">
+        <ul class="nav justify-content-around">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">INICIO</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">PERFILES NACIONALES</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">PAISES</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">ESTADISTICAS E INDICADORES</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">VINCULOS</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">ACERCA DE</a>
+          </li>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <div class="container">
@@ -56,7 +61,7 @@
       <main class="row justify-content-around">
 
         <!-- primer recuadro -->
-        <div class="col-3 main-div py-3 border">
+        <div class="col-12 col-md-4 col-lg-3 main-div py-3 border">
           <div class="col">
             <h3 class="text-left">
               <img src="img/perfiles_nacionales.jpg" alt="icono perfiles nacionales" width="46">
@@ -67,12 +72,12 @@
               de América Latina</p>
           </div>
           <div>
-            <img class="img-fluid" src="img/estadisticas.png" alt="">
+            <img class="img-fluid d-none d-md-block" src="img/estadisticas.png" alt="">
           </div>
         </div>
 
         <!-- segundo recuadro -->
-        <div class="col-3 py-3 main-div" id="clickPaises">
+        <div class="col-12 col-md-4 col-lg-3 py-3 main-div" id="clickPaises">
           <div class="col">
             <h3>
               <img src="img/paises.png" alt="icono de países" width="46">
@@ -80,12 +85,12 @@
           </div>
           <p class="pl-3">Acceda a la lista de paises de latinoamerica y selecciona los indicadores</p>
           <div>
-            <img class="img-fluid" src="img/estadisticas.png" alt="">
+            <img class="img-fluid d-none d-md-block" src="img/estadisticas.png" alt="">
           </div>
         </div>
 
         <!-- tercer recuadro -->
-        <div class="col-3 py-3 main-div" id="clickPaises">
+        <div class="col-12 col-md-4 col-lg-3 main-div" id="clickPaises">
           <div class="col">
             <h3>
               <img src="img/estadisticas_indicadores.jpg" alt="ícono de perfiles nacionales" width="46">
@@ -95,7 +100,7 @@
             de los países
             de Latino América</p>
           <div>
-            <img class="img-fluid" src="img/estadisticas.png" alt="">
+            <img class="img-fluid d-none d-md-block" src="img/estadisticas.png" alt="">
           </div>
         </div>
       </main>
@@ -161,22 +166,22 @@
 
 
 
-            <select name="indicadores" id="indicadores">
-            </select>
+          <select name="indicadores" id="indicadores">
+          </select>
 
-            <div id="root">
-            </div>
+          <div id="root">
+          </div>
 
-            <div>
-              <input type="button" id="btnOrdenar" value=" Ordenar por año descendente" />
-            </div>
+          <div>
+            <input type="button" id="btnOrdenar" value=" Ordenar por año descendente" />
+          </div>
 
-            <div>
-              <input type="button" id="btnCalcularPromedio" value=" Calcular promedio" />
-            </div>
+          <div>
+            <input type="button" id="btnCalcularPromedio" value=" Calcular promedio" />
+          </div>
 
-            <div id="root2">
-            </div>
+          <div id="root2">
+          </div>
 
 
         </div>
@@ -204,10 +209,10 @@
     </div>
   </footer>
 
-<!-- PARA QUE ES ESTE DIV??? ELY -->
+  <!-- PARA QUE ES ESTE DIV??? ELY -->
   <!-- <div id="root"></div> -->
 
-  
+
   <!-- <script src="./data/injuries/injuries.js"></script> -->
   <!-- <script src="./data/pokemon/pokemon.js"></script> -->
   <!-- <script src="./data/steam/steam.js"></script> -->
