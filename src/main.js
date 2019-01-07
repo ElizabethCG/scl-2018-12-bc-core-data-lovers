@@ -1,11 +1,11 @@
-window.onload = screens
-
-function screens() {
+// window.onload = screens
+//
+// function screens() {
 
   document.getElementById('seccionPaises').style.display = 'none';
   document.getElementById('seccionIndicadores').style.display = 'none';
   document.getElementById('seccionEstadisticas').style.display = 'none';
-};
+// };
 
   const goPaises = document.getElementById('clickPaises');
   goPaises.addEventListener('click', () => {
@@ -38,6 +38,9 @@ function screens() {
         document.getElementById("paisesEc").innerHTML += "<option value=" + i + "  id=paisesEc" + i + ">" + mostrarPaises + "</option>";
       }
 
+
+
+
       //Función para elegir países
       document.getElementById("paisesEc").addEventListener("click",
         (evento) => {
@@ -46,10 +49,17 @@ function screens() {
           let paisElegido = document.getElementById("paisesEc").value;
 
 
-          //Función para seleccionar 
+          //Función para seleccionar
           document.getElementById("btnLlamarIndicadores").addEventListener("click",
             (evento) => {
               evento.preventDefault();
+
+
+              document.getElementById('seccionIndex').style.display = 'none';
+              document.getElementById('seccionPaises').style.display = 'none';
+              document.getElementById('seccionIndicadores').style.display = 'block';
+              document.getElementById('seccionEstadisticas').style.display = 'none';
+              document.getElementById("indicadores").style.display ="block";
 
               document.getElementById('indicadores').innerHTML = '';
               // AQUÍ VA LA LLAMADA A LA FUNCIÓN
@@ -70,7 +80,7 @@ function screens() {
                   let almacenarObjetoData = nombreIndicador.data;
                   let retornoDatosYear = window.dataForYear(paisBuscar, nombreIndicador, almacenarObjetoData); //llamada a la función nombreIndicadores y retorno de array con el total de indicadores pra un país seleccionado
 
-
+                  console.log(retornoDatosYear);
                   document.getElementById('root').innerHTML = '';
                   for (let i = 0; i < retornoDatosYear.length; i++) {
                     retornoDatosYear[i]
@@ -83,7 +93,7 @@ document.getElementById("btnOrdenar").addEventListener("click",
       (evento)=> {
         evento.preventDefault();
 
-        
+
         let retornoDatosYearOrdenado=window.ordenarDatosPorYear(retornoDatosYear);
 
 
@@ -98,14 +108,30 @@ for (let i=0; i<retornoDatosYearOrdenado.length;i++){
 })
 
 
+
+document.getElementById("btnCalcularPromedio").addEventListener("click",
+      (evento)=> {
+        evento.preventDefault();
+
+console.log(retornoDatosYear.length);
+
+  let realizarCalculo=window.computeStats(retornoDatosYear);
+
+
+
+document.getElementById('root2').innerHTML = '';
+
+document.getElementById ("root2").innerHTML += "<p>" + "El promedio es: "+ realizarCalculo +"<br>" + "</p>";
+
+
+})
+
+
+
+
+
+
                 })
             })
         })
   })
-}
-
-   
-
-
-
-
