@@ -4,7 +4,7 @@
 
 document.getElementById('countryMain').style.display = 'none';
 document.getElementById('indicatorMain').style.display = 'none';
-document.getElementById('statisticsSection').style.display = 'none';
+document.getElementById('statisticsMain').style.display = 'none';
 // };
 
 const goCountry = document.getElementById('clickCountry');
@@ -47,7 +47,7 @@ document.getElementById("clickCountry").addEventListener("click",
             document.getElementById('indexMain').style.display = 'none';
             document.getElementById('countryMain').style.display = 'none';
             document.getElementById('indicatorMain').style.display = 'block';
-            document.getElementById('statisticsSection').style.display = 'none';
+            document.getElementById('statisticsMain').style.display = 'none';
             document.getElementById('indicators').style.display = "block";
             document.getElementById('indicators').innerHTML = '';
 
