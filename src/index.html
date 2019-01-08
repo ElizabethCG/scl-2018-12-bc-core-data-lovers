@@ -22,8 +22,8 @@
           <img src="img/logo.png" alt="logo" width="200">
         </a>
       </div>
+    </div>
   </header>
-  </div>
   <!-- menú de navegación -->
   <nav class="row">
     <div class="container">
@@ -47,21 +47,20 @@
           <li class="nav-item">
             <a href="#" class="nav-link">ACERCA DE</a>
           </li>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
   <div class="container">
-    <!---------------------------- INDEX---------------------->
-    <section id="indexSection" class="row my-4">
+    <!--    INDEX    -->
+    <main id="indexMain" class="row my-4">
       <div class="col-12 mb-3">
         <h1 class="text-center">Acceda a la información estadística de América Latina del Banco Mundial</h1>
       </div>
-      <main class="row justify-content-around">
+      <section class="row justify-content-around">
 
         <!-- primer recuadro -->
-        <div class="col-12 col-md-4 col-lg-3 main-div py-3 border">
+        <div class="col-12 col-md-4 col-lg-3 section-div py-3 border">
           <div class="col">
             <h3 class="text-left">
               <img src="img/perfiles_nacionales.jpg" alt="icono perfiles nacionales" width="46">
@@ -77,7 +76,7 @@
         </div>
 
         <!-- segundo recuadro -->
-        <div class="col-12 col-md-4 col-lg-3 py-3 main-div" id="clickCountry">
+        <div class="col-12 col-md-4 col-lg-3 py-3 section-div" id="clickCountry">
           <div class="col">
             <h3>
               <img src="img/paises.png" alt="icono de países" width="46">
@@ -90,7 +89,7 @@
         </div>
 
         <!-- tercer recuadro -->
-        <div class="col-12 col-md-4 col-lg-3 main-div" id="clickCountry">
+        <div class="col-12 col-md-4 col-lg-3 section-div">
           <div class="col">
             <h3>
               <img src="img/estadisticas_indicadores.jpg" alt="ícono de perfiles nacionales" width="46">
@@ -103,17 +102,17 @@
             <img class="img-fluid d-none d-md-block" src="img/estadisticas.png" alt="">
           </div>
         </div>
-      </main>
-    </section>
+      </section>
+    </main>
 
-    <!---------------------------- PAISES---------------------->
+    <!--   PAISES    -->
 
-    <section id="countrySection" class="row my-4">
-      <main class="col-12">
+    <main id="countryMain" class="row my-4">
+      <section class="col-12">
         <div class="col-12">
-          <h1>
+          <h2>
             <img src="img/paises.png" alt="icono de países" width="46">
-            PAISES</h1>
+            PAISES</h2>
         </div>
         <hr>
         <!--    <ul>
@@ -138,31 +137,26 @@
           <li>Uruguay</li>
           <li>Venezuela</li>
         </ul> -->
+
+        <!-- VER SI DEBE IR DENTRO DE UN FORM O NO ES NECESARIO -->
+        <select name="selectCountries" id="selectCountries">
+        </select>
+
         <div>
+          <input type="button" id="btnCallIndicators" value="Ver indicadores" />
+        </div>
+      </section>
+    </main>
 
 
-          <!-- VER SI DEBE IR DENTRO DE UN FORM O NO ES NECESARIO -->
-          <select name="selectCountries" id="selectCountries">
-          </select>
+    <!-- INDICADORES -->
 
-          <div>
-            <input type="button" id="btnCallIndicators" value="Ver indicadores" />
-
-          </div>
-
-
-      </main>
-    </section>
-
-
-    <!---------------------------- INDICADORES---------------------->
-
-    <section id="indicatorSection" class="row my-4">
-      <main class="col-12">
+    <main id="indicatorMain" class="row my-4">
+      <section class="col-12">
         <div class="col-12">
-          <h1>
+          <h2>
             <img src="img/paises.png" alt="icono de países" width="46">
-            INDICADORES</h1>
+            INDICADORES</h2>
 
 
 
@@ -186,21 +180,21 @@
 
         </div>
         <hr>
-      </main>
-    </section>
+      </section>
+    </main>
 
-    <!---------------------------- ESTADISTICAS POR INDICADOR---------------------->
+    <!-- ESTADISTICAS POR INDICADOR -->
 
-    <section id="statisticsSection" class="row my-4">
-      <main class="col-12">
+    <main id="statisticsMain" class="row my-4">
+      <section class="col-12">
         <div class="col-12">
-          <h1>
+          <h3>
             <img src="img/paises.png" alt="icono de países" width="46">
-            ESTADISTICAS POR INDICADOR</h1>
+            ESTADISTICAS POR INDICADOR</h3>
         </div>
         <hr>
-      </main>
-    </section>
+      </section>
+    </main>
   </div>
   <!-- footer -->
   <footer class="row">
@@ -212,12 +206,7 @@
   <!-- PARA QUE ES ESTE DIV??? ELY -->
   <!-- <div id="root"></div> -->
 
-
-  <!-- <script src="./data/injuries/injuries.js"></script> -->
-  <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-  <!-- <script src="./data/steam/steam.js"></script> -->
   <script src="./data/worldbank/worldbank.js"></script>
-  <!-- <script src="./data/lol/lol.js"></script> -->
   <script src="data.js"></script>
   <script src="main.js"></script>
   <script src="bootstrap/js/jquery-3.3.1.min.js"></script>

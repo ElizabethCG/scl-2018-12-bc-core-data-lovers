@@ -2,15 +2,15 @@
 //
 // function screens() {
 
-document.getElementById('countrySection').style.display = 'none';
-document.getElementById('indicatorSection').style.display = 'none';
+document.getElementById('countryMain').style.display = 'none';
+document.getElementById('indicatorMain').style.display = 'none';
 document.getElementById('statisticsSection').style.display = 'none';
 // };
 
 const goCountry = document.getElementById('clickCountry');
 goCountry.addEventListener('click', () => {
-  document.getElementById('indexSection').style.display = 'none';
-  document.getElementById('countrySection').style.display = 'block';
+  document.getElementById('indexMain').style.display = 'none';
+  document.getElementById('countryMain').style.display = 'block';
 });
 
 // AQUÍ EMPIEZA CODIGO ELIZABETH
@@ -44,9 +44,9 @@ document.getElementById("clickCountry").addEventListener("click",
             evento.preventDefault();
 
 
-            document.getElementById('indexSection').style.display = 'none';
-            document.getElementById('countrySection').style.display = 'none';
-            document.getElementById('indicatorSection').style.display = 'block';
+            document.getElementById('indexMain').style.display = 'none';
+            document.getElementById('countryMain').style.display = 'none';
+            document.getElementById('indicatorMain').style.display = 'block';
             document.getElementById('statisticsSection').style.display = 'none';
             document.getElementById('indicators').style.display = "block";
             document.getElementById('indicators').innerHTML = '';
