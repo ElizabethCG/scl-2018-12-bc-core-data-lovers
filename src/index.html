@@ -54,7 +54,7 @@
   </nav>
   <div class="container">
     <!---------------------------- INDEX---------------------->
-    <section id="seccionIndex" class="row my-4">
+    <section id="indexSection" class="row my-4">
       <div class="col-12 mb-3">
         <h1 class="text-center">Acceda a la información estadística de América Latina del Banco Mundial</h1>
       </div>
@@ -77,7 +77,7 @@
         </div>
 
         <!-- segundo recuadro -->
-        <div class="col-12 col-md-4 col-lg-3 py-3 main-div" id="clickPaises">
+        <div class="col-12 col-md-4 col-lg-3 py-3 main-div" id="clickCountry">
           <div class="col">
             <h3>
               <img src="img/paises.png" alt="icono de países" width="46">
@@ -90,7 +90,7 @@
         </div>
 
         <!-- tercer recuadro -->
-        <div class="col-12 col-md-4 col-lg-3 main-div" id="clickPaises">
+        <div class="col-12 col-md-4 col-lg-3 main-div" id="clickCountry">
           <div class="col">
             <h3>
               <img src="img/estadisticas_indicadores.jpg" alt="ícono de perfiles nacionales" width="46">
@@ -108,7 +108,7 @@
 
     <!---------------------------- PAISES---------------------->
 
-    <section id="seccionPaises" class="row my-4">
+    <section id="countrySection" class="row my-4">
       <main class="col-12">
         <div class="col-12">
           <h1>
@@ -142,11 +142,11 @@
 
 
           <!-- VER SI DEBE IR DENTRO DE UN FORM O NO ES NECESARIO -->
-          <select name="paisesEc" id="paisesEc">
+          <select name="selectCountries" id="selectCountries">
           </select>
 
           <div>
-            <input type="button" id="btnLlamarIndicadores" value=" Ver indicadores" />
+            <input type="button" id="btnCallIndicators" value="Ver indicadores" />
 
           </div>
 
@@ -157,7 +157,7 @@
 
     <!---------------------------- INDICADORES---------------------->
 
-    <section id="seccionIndicadores" class="row my-4">
+    <section id="indicatorSection" class="row my-4">
       <main class="col-12">
         <div class="col-12">
           <h1>
@@ -166,14 +166,14 @@
 
 
 
-          <select name="indicadores" id="indicadores">
+          <select name="indicators" id="indicators">
           </select>
 
           <div id="root">
           </div>
 
           <div>
-            <input type="button" id="btnOrdenar" value=" Ordenar por año descendente" />
+            <input type="button" id="btnOrdenar" value="Ordenar por año descendente" />
           </div>
 
           <div>
@@ -191,7 +191,7 @@
 
     <!---------------------------- ESTADISTICAS POR INDICADOR---------------------->
 
-    <section id="seccionEstadisticas" class="row my-4">
+    <section id="statisticsSection" class="row my-4">
       <main class="col-12">
         <div class="col-12">
           <h1>
