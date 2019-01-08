@@ -25,12 +25,12 @@ nav {
   color: #22A6F5;
 }
 
-.main-div {
+.section-div {
 background-color: #FFFFFF;
 cursor: pointer;
 }
 
-.main-div:hover {
+.section-div:hover {
   background-color: #e4e9ec;
 }
 
