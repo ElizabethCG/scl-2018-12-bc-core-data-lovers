@@ -2,80 +2,72 @@
 //
 // function screens() {
 
-document.getElementById('seccionPaises').style.display = 'none';
-document.getElementById('seccionIndicadores').style.display = 'none';
-document.getElementById('seccionEstadisticas').style.display = 'none';
+document.getElementById('countrySection').style.display = 'none';
+document.getElementById('indicatorSection').style.display = 'none';
+document.getElementById('statisticsSection').style.display = 'none';
 // };
 
-const goPaises = document.getElementById('clickPaises');
-goPaises.addEventListener('click', () => {
-  document.getElementById('seccionIndex').style.display = 'none';
-  document.getElementById('seccionPaises').style.display = 'block';
+const goCountry = document.getElementById('clickCountry');
+goCountry.addEventListener('click', () => {
+  document.getElementById('indexSection').style.display = 'none';
+  document.getElementById('countrySection').style.display = 'block';
 });
-
-
 
 // AQUÍ EMPIEZA CODIGO ELIZABETH
 
-document.getElementById("clickPaises").addEventListener("click",
+document.getElementById("clickCountry").addEventListener("click",
   (evento) => {
     evento.preventDefault();
-
-
     let datas = window.WORLDBANK;
-
     let paises = [[datas.PER, datas.MEX, datas.BRA, datas.CHL],
     ["Perú", "México", "Brasil", "Chile"]];
-
-
-    document.getElementById('paisesEc').innerHTML = ''; // limpio el div cada vez que se hace click
-
+    document.getElementById('selectCountries').innerHTML = ''; // limpio el div cada vez que se hace click
 
 
     // Para mostrar la lista de países en el menú de selección
     for (let i = 0; i < 4; i++) { //se pone 4. Aún no colocamos el largo del objeto, no se puede con length
-      let mostrarPaises = (paises[1][i]);
-      document.getElementById("paisesEc").innerHTML += "<option value=" + i + "  id=paisesEc" + i + ">" + mostrarPaises + "</option>";
+      let showCountries = (paises[1][i]);
+      document.getElementById("selectCountries").innerHTML += "<option value=" + i + "  id=selectCountries" + i + ">" + showCountries + "</option>";
     }
 
     //Función para elegir países
-    document.getElementById("paisesEc").addEventListener("click",
+    document.getElementById("selectCountries").addEventListener("click",
       (evento) => {
         evento.preventDefault();
 
-        let paisElegido = document.getElementById("paisesEc").value;
+        let selectedCountry = document.getElementById("selectCountries").value;
 
 
         //Función para seleccionar
-        document.getElementById("btnLlamarIndicadores").addEventListener("click",
+        document.getElementById("btnCallIndicators").addEventListener("click",
           (evento) => {
             evento.preventDefault();
 
 
-            document.getElementById('seccionIndex').style.display = 'none';
-            document.getElementById('seccionPaises').style.display = 'none';
-            document.getElementById('seccionIndicadores').style.display = 'block';
-            document.getElementById('seccionEstadisticas').style.display = 'none';
-            document.getElementById("indicadores").style.display = "block";
+            document.getElementById('indexSection').style.display = 'none';
+            document.getElementById('countrySection').style.display = 'none';
+            document.getElementById('indicatorSection').style.display = 'block';
+            document.getElementById('statisticsSection').style.display = 'none';
+            document.getElementById('indicators').style.display = "block";
+            document.getElementById('indicators').innerHTML = '';
 
-            document.getElementById('indicadores').innerHTML = '';
             // AQUÍ VA LA LLAMADA A LA FUNCIÓN
-            let paisBuscar = paises[0][paisElegido];
-            let retornoArray = window.nombreIndicadores(paisBuscar); //llamada a la función nombreIndicadores y retorno de array con el total de indicadores pra un país seleccionado
-            for (let i = 0; i < retornoArray.length; i++) {
-              document.getElementById("indicadores").innerHTML += "<option value=" + i + "  id=indicadores" + i + ">" + retornoArray[i] + "<br>" + "</option>";
+            let searchCountry = paises[0][selectedCountry];
+            let returnArray = window.indicatorsNames(searchCountry); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
+            for (let i = 0; i < returnArray.length; i++) {
+              document.getElementById("indicators").innerHTML += "<option value=" + i + "  id=indicators" + i + ">" + returnArray[i] + "<br>" + "</option>";
             }
 
-            document.getElementById("indicadores").addEventListener("click",
+            document.getElementById("indicators").addEventListener("click",
               (evento) => {
                 evento.preventDefault();
 
-                let indicadorElegido = document.getElementById("indicadores").value;
-                let paisElegido = document.getElementById("paisesEc").value;
-                let paisBuscar = (paises[0][paisElegido]);
-                let nombreIndicador = paisBuscar.indicators[indicadorElegido];
-                let almacenarObjetoData = nombreIndicador.data;
-                let retornoDatosYear = window.dataForYear(paisBuscar, nombreIndicador, almacenarObjetoData); //llamada a la función nombreIndicadores y retorno de array con el total de indicadores pra un país seleccionado
+                let indicadorElegido = document.getElementById("indicators").value;
+                let selectedCountry = document.getElementById("selectCountries").value;
+                let searchCountry = (paises[0][selectedCountry]);
+                let nameIndicator = searchCountry.indicators[indicadorElegido];
+                let almacenarObjetoData = nameIndicator.data;
+                let retornoDatosYear = window.dataForYear(searchCountry, nameIndicator, almacenarObjetoData); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
 
                 console.log(retornoDatosYear);
                 document.getElementById('root').innerHTML = '';
@@ -89,12 +81,7 @@ document.getElementById("clickPaises").addEventListener("click",
                 document.getElementById("btnOrdenar").addEventListener("click",
                   (evento) => {
                     evento.preventDefault();
-
-
-                    let retornoDatosYearOrdenado = window.ordenarDatosPorYear(retornoDatosYear);
-
-
-
+                    let retornoDatosYearOrdenado = window.orderDataForYear(retornoDatosYear);
                     document.getElementById('root').innerHTML = '';
                     for (let i = 0; i < retornoDatosYearOrdenado.length; i++) {
                       retornoDatosYearOrdenado[i]
