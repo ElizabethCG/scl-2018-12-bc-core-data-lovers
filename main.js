@@ -23,14 +23,14 @@ let verPaises = window.paises();
 
 
 
-document.getElementById("clickCountry").addEventListener("click",  //transformar a una función para poder reutilizarlo desde distintos botones
+document.getElementById("clickCountry").addEventListener("click", //transformar a una función para poder reutilizarlo desde distintos botones
 
   (evento) => {
     evento.preventDefault();
 
     document.getElementById('selectCountries').innerHTML = ''; // limpio el div cada vez que se hace click
 
-    let m=0;
+    let m = 0;
     verPaises[1].forEach((element) => {
       let showCountries = (verPaises[1][m]);
       document.getElementById("selectCountries").innerHTML += "<option value=" + m + "  id=selectCountries" + m + ">" + showCountries + "</option>";
@@ -87,13 +87,11 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                 let retornoDatosYear = window.dataForYear(searchCountry, nameIndicator, almacenarObjetoData); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
 
                 document.getElementById('root').innerHTML = '';
+                let table = '';
                 for (let i = 0; i < retornoDatosYear.length; i++) {
-                  retornoDatosYear[i]
-                  document.getElementById("root").innerHTML += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>";
-                  /* += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>"; */
+                  table += `<tr><td>${retornoDatosYear[i].year}</td><td>${retornoDatosYear[i].valor}</td></tr>`;
+                  document.getElementById('root').innerHTML = table;
                 }
-
-
 
                 document.getElementById("btnOrdenar").addEventListener("click",
                   (evento) => {
