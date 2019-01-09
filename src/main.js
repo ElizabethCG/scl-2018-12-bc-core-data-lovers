@@ -16,20 +16,35 @@ goCountry.addEventListener('click', () => {
 
 // AQUÍ EMPIEZA CODIGO ELIZABETH
 
-document.getElementById("clickCountry").addEventListener("click",  //transformar a una función para poder reutilizarlo desde distintos botones 
+
+
+let verPaises = window.paises();
+
+
+
+
+document.getElementById("clickCountry").addEventListener("click",  //transformar a una función para poder reutilizarlo desde distintos botones
+
   (evento) => {
     evento.preventDefault();
-    let datas = window.WORLDBANK;
-    let paises = [[datas.PER, datas.MEX, datas.BRA, datas.CHL],
-    ["Perú", "México", "Brasil", "Chile"]];
+
     document.getElementById('selectCountries').innerHTML = ''; // limpio el div cada vez que se hace click
+
+    let m=0;
+    verPaises[1].forEach((element) => {
+      let showCountries = (verPaises[1][m]);
+      document.getElementById("selectCountries").innerHTML += "<option value=" + m + "  id=selectCountries" + m + ">" + showCountries + "</option>";
+      m++;
+    })
+
 
 
     // Para mostrar la lista de países en el menú de selección
-    for (let i = 0; i < 4; i++) { //se pone 4. Aún no colocamos el largo del objeto, no se puede con length
-      let showCountries = (paises[1][i]);
-      document.getElementById("selectCountries").innerHTML += "<option value=" + i + "  id=selectCountries" + i + ">" + showCountries + "</option>";
-    }
+    // for (let i = 0; i < verPaises[1].length; i++) { //se pone 4. Aún no colocamos el largo del objeto, no se puede con length
+    //   let showCountries = (verPaises[1][i]);
+    //   document.getElementById("selectCountries").innerHTML += "<option value=" + i + "  id=selectCountries" + i + ">" + showCountries + "</option>";
+    // }
+
 
     //Función para elegir países
     document.getElementById("selectCountries").addEventListener("click",
@@ -53,7 +68,7 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
             document.getElementById('indicators').innerHTML = '';
 
             // AQUÍ VA LA LLAMADA A LA FUNCIÓN
-            let searchCountry = paises[0][selectedCountry];
+            let searchCountry = verPaises[0][selectedCountry];
             let returnArray = window.indicatorsNames(searchCountry); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
             for (let i = 0; i < returnArray.length; i++) {
               document.getElementById("indicators").innerHTML += "<option value=" + i + "  id=indicators" + i + ">" + returnArray[i] + "<br>" + "</option>";
@@ -65,7 +80,8 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
 
                 let indicadorElegido = document.getElementById("indicators").value;
                 let selectedCountry = document.getElementById("selectCountries").value;
-                let searchCountry = (paises[0][selectedCountry]);
+                // console.log(verPaises[0][selectedCountry]);
+                let searchCountry = (verPaises[0][selectedCountry]);
                 let nameIndicator = searchCountry.indicators[indicadorElegido];
                 let almacenarObjetoData = nameIndicator.data;
                 let retornoDatosYear = window.dataForYear(searchCountry, nameIndicator, almacenarObjetoData); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
