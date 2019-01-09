@@ -170,24 +170,36 @@
 
           <select name="indicators" id="indicators">
           </select>
+          <div class="row mt-4">
+            <div class="col-6">
+              <h2>Estadisticas</h2>
+              <table class="table table-bordered table-hover table-sm">
+                <thead class="table-info">
+                  <tr>
+                    <th>Año</th>
+                    <th>Porcentaje</th>
+                </thead>
+                <tbody id="root">
 
-          <div id="root">
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <div>
-            <input type="button" id="btnOrdenar" value="Ordenar por año descendente" />
+            <div>
+              <input type="button" id="btnOrdenar" value="Ordenar por año descendente" />
+            </div>
+
+            <div>
+              <input type="button" id="btnCalcularPromedio" value=" Calcular promedio" />
+            </div>
+
+            <div id="root2">
+            </div>
+
+
           </div>
-
-          <div>
-            <input type="button" id="btnCalcularPromedio" value=" Calcular promedio" />
-          </div>
-
-          <div id="root2">
-          </div>
-
-
-        </div>
-        <hr>
+          <hr>
       </section>
     </main>
 
