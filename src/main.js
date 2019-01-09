@@ -86,7 +86,6 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                 let almacenarObjetoData = nameIndicator.data;
                 let retornoDatosYear = window.dataForYear(searchCountry, nameIndicator, almacenarObjetoData); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
 
-                console.log(retornoDatosYear);
                 document.getElementById('root').innerHTML = '';
                 for (let i = 0; i < retornoDatosYear.length; i++) {
                   retornoDatosYear[i]
@@ -115,9 +114,6 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                 document.getElementById("btnCalcularPromedio").addEventListener("click",
                   (evento) => {
                     evento.preventDefault();
-
-                    console.log(retornoDatosYear.length);
-
                     let realizarCalculo = window.computeStats(retornoDatosYear);
 
 
@@ -125,15 +121,7 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                     document.getElementById('root2').innerHTML = '';
 
                     document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
-
-
                   })
-
-
-
-
-
-
               })
           })
       })
