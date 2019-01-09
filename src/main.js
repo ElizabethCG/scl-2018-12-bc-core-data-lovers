@@ -7,6 +7,7 @@ document.getElementById('indicatorMain').style.display = 'none';
 document.getElementById('statisticsMain').style.display = 'none';
 // };
 
+
 const goCountry = document.getElementById('clickCountry');
 goCountry.addEventListener('click', () => {
   document.getElementById('indexMain').style.display = 'none';
@@ -16,13 +17,13 @@ goCountry.addEventListener('click', () => {
 // AQUÍ EMPIEZA CODIGO ELIZABETH
 
 
+
 let verPaises = window.paises();
 
 
 
+document.getElementById("clickCountry").addEventListener("click",  //transformar a una función para poder reutilizarlo desde distintos botones
 
-
-document.getElementById("clickCountry").addEventListener("click",
   (evento) => {
     evento.preventDefault();
     let datas = window.WORLDBANK;
@@ -81,6 +82,7 @@ document.getElementById("clickCountry").addEventListener("click",
                 for (let i = 0; i < retornoDatosYear.length; i++) {
                   retornoDatosYear[i]
                   document.getElementById("root").innerHTML += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>";
+                  /* += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>"; */
                 }
 
 
