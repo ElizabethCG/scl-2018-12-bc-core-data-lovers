@@ -15,14 +15,14 @@ let direccionSecundaria =direccionInicial.countryCode;
 let direccionTerciaria =direccionInicial.countryName;
 
 arrayPaises.push(direccionTerciaria);
-arrayPaisesb.push(direccionSecundaria);
+arrayPaisesb.push(direccion[prop]);
 
 
     }
 
   listadoPaises.push(arrayPaisesb,arrayPaises);
-  
-  return arrayPaises;
+
+  return listadoPaises;
 }
 window.paises = paises;
 
