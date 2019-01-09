@@ -15,6 +15,13 @@ goCountry.addEventListener('click', () => {
 
 // AQUÍ EMPIEZA CODIGO ELIZABETH
 
+
+let verPaises = window.paises();
+
+
+
+
+
 document.getElementById("clickCountry").addEventListener("click",
   (evento) => {
     evento.preventDefault();

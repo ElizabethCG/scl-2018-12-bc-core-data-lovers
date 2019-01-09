@@ -1,7 +1,32 @@
 
 //Función donde recorreré el arreglo de objetos para acceder a su propiedad name
 //Función para filtrar
+
+const paises = () => {
+  let arrayPaises = []; // arreglo vacío donde pushearé los nombres de indicadores.
+
+    for (let prop in window.WORLDBANK) {
+      let direccion=window.WORLDBANK;
+
+let direccionInicial= direccion[prop].indicators[0]; //así se debe indicar la llamada para que no de error
+let direccionSecundaria =direccionInicial.countryCode;
+let direccionTerciaria =direccionInicial.countryName;
+
+direccion3=arrayPaises.push(direccionTerciaria);
+direccion3=arrayPaises.push(direccionSecundaria);
+
+    }
+  console.log(arrayPaises);
+  return arrayPaises;
+}
+window.paises = paises;
+
+
+
+
+
 const indicatorsNames = (searchCountry) => {   //searchCountry (condición)//
+  console.log(searchCountry);
   let names = []; // arreglo vacío donde pushearé los nombres de indicadores.
   for (let i = 0; i < searchCountry.indicators.length; i++) { //searchCountry
     let nameIndicator = searchCountry.indicators[i];
