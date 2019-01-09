@@ -3,23 +3,31 @@
 //Función para filtrar
 
 const paises = () => {
-  let arrayPaises = []; // arreglo vacío donde pushearé los nombres de indicadores.
+  let arrayPaises = [];
+  let arrayPaisesb=[]
+  let listadoPaises=[];
 
-    for (let prop in window.WORLDBANK) {
-      let direccion=window.WORLDBANK;
+let direccion=window.WORLDBANK;
+    for (let prop in direccion) {
 
 let direccionInicial= direccion[prop].indicators[0]; //así se debe indicar la llamada para que no de error
 let direccionSecundaria =direccionInicial.countryCode;
 let direccionTerciaria =direccionInicial.countryName;
 
-direccion3=arrayPaises.push(direccionTerciaria);
-direccion3=arrayPaises.push(direccionSecundaria);
+arrayPaises.push(direccionTerciaria);
+arrayPaisesb.push(direccionSecundaria);
+
 
     }
-  console.log(arrayPaises);
+
+  listadoPaises.push(arrayPaisesb,arrayPaises);
+  
   return arrayPaises;
 }
 window.paises = paises;
+
+
+
 
 
 
