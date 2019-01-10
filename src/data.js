@@ -6,7 +6,6 @@ const country = () => {
   let arrayCountryB = [];
   let arrayCountryA = []
   let listadoCountry = [];
-
   let route = window.WORLDBANK;
   for (let property in route) {
 
@@ -25,10 +24,6 @@ window.country = country;
 
 
 
-
-
-
-
 const indicatorsNames = (searchCountry) => {   //searchCountry (condición)//
   let names = []; // arreglo vacío donde pushearé los nombres de indicadores.
   for (let i = 0; i < searchCountry.indicators.length; i++) { //searchCountry
@@ -38,6 +33,7 @@ const indicatorsNames = (searchCountry) => {   //searchCountry (condición)//
   return names; //retorno el arreglo de nombres para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
 }
 window.indicatorsNames = indicatorsNames;
+
 
 
 //Filtrar por país y nombre del indicador
@@ -54,7 +50,6 @@ const dataForYear = (searchCountry, nameIndicator, almacenarObjetoData) => {
       otherObject.push(newObject);
     }
   }
-
   return otherObject; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
 }
 window.dataForYear = dataForYear;
@@ -63,10 +58,7 @@ window.dataForYear = dataForYear;
 
 // FUNCION QUE ORDENA
 const orderDataForYear = (retornoDatosYear) => {
-
   let orderedArray = retornoDatosYear;
-
-
   orderedArray.sort(function (a, b) {
     if (a.year > b.year) {
       return -1;
@@ -76,9 +68,7 @@ const orderDataForYear = (retornoDatosYear) => {
     }
     // a must be equal to b
     return 0;
-
   });
-
   return orderedArray; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
 }
 window.orderDataForYear = orderDataForYear;

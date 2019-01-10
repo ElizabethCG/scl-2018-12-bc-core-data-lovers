@@ -27,9 +27,8 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
 
     let m=0;
     countryList[1].forEach((element) => {
-      let showCountries = (countryList[1][m]);
-
-      document.getElementById("selectCountries").innerHTML += "<option value=" + m + "  id=selectCountries" + m + ">" + showCountries + "</option>";
+      // let showCountries = (countryList[1][m]);
+      document.getElementById("selectCountries").innerHTML += "<option value=" + m + "  id=selectCountries" + m + ">" + element + "</option>";
       m++;
     })
 
@@ -87,12 +86,10 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                 document.getElementById('root').innerHTML = '';
                 let table = '';
                 for (let i = 0; i < retornoDatosYear.length; i++) {
-
-
-
                   table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
 
                   document.getElementById('root').innerHTML = table;
+
 
                 }
 
@@ -103,36 +100,35 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                     document.getElementById('root').innerHTML = '';
                     let table = '';
                     for (let i = 0; i < retornoDatosYearOrdenado.length; i++) {
-                      table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
+                      table += `<tr><td class="pl-3">${retornoDatosYearOrdenado[i].year}</td><td class="pl-3">${retornoDatosYearOrdenado[i].valor}</td></tr>`;
                     document.getElementById('root').innerHTML = table;
                     }
                   })
 
+                  document.getElementById("btnOrdenar2").addEventListener("click",
+                    (event) => {
+                      event.preventDefault();
+                      let retornoDatosYear = window.dataForYear(searchCountry, nameIndicator, almacenarObjetoData);
+                      document.getElementById('root').innerHTML = '';
+                      let table = '';
 
+                      for (let i = 0; i < retornoDatosYear.length; i++) {
+                        table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
+                        document.getElementById('root').innerHTML = table;
+
+                      }
+                    })
 
                 document.getElementById("btnCalcularPromedio").addEventListener("click",
-
                   (event) => {
                     event.preventDefault();
-
-                    console.log(retornoDatosYear.length);
-
+                    // console.log(retornoDatosYear.length);
                     if(retornoDatosYear.length>0){
-
                     let realizarCalculo = window.computeStats(retornoDatosYear);
                     document.getElementById('root2').innerHTML = '';
-
                     document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
-
-
                   }else{
-
-
-                    // document.getElementById('root2').innerHTML = '';
-
-                  document.getElementById("root2").innerHTML = "<p>" + "No se encontraron datos disponibles"+ "</p>";}
-
-
+                    document.getElementById("root2").innerHTML = "<p>" + "No hay información disponible"+ "</p>";}
                   })
               })
           })
