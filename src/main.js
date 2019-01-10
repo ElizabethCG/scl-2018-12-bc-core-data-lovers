@@ -115,6 +115,7 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                     event.preventDefault();
 
                     console.log(retornoDatosYear.length);
+
                     if(retornoDatosYear.length>0){
 
                     let realizarCalculo = window.computeStats(retornoDatosYear);
@@ -128,10 +129,8 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
 
                     // document.getElementById('root2').innerHTML = '';
 
-                  document.getElementById("root2").innerHTML += "<p>" + "No se encontraron datos disponibles"+ "</p>";}
+                  document.getElementById("root2").innerHTML = "<p>" + "No se encontraron datos disponibles"+ "</p>";}
 
-
-                    document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
 
                   })
               })
