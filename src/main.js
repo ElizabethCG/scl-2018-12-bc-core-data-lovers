@@ -18,21 +18,15 @@ goCountry.addEventListener('click', () => {
 
 
 
-let verPaises = window.paises();
-
-
-
-
+let countryList = window.country();
 document.getElementById("clickCountry").addEventListener("click",  //transformar a una función para poder reutilizarlo desde distintos botones
-
-  (evento) => {
-    evento.preventDefault();
-
+  (event) => {
+    event.preventDefault();
     document.getElementById('selectCountries').innerHTML = ''; // limpio el div cada vez que se hace click
 
     let m=0;
-    verPaises[1].forEach((element) => {
-      let showCountries = (verPaises[1][m]);
+    countryList[1].forEach((element) => {
+      let showCountries = (countryList[1][m]);
       document.getElementById("selectCountries").innerHTML += "<option value=" + m + "  id=selectCountries" + m + ">" + showCountries + "</option>";
       m++;
     })
@@ -40,24 +34,24 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
 
 
     // Para mostrar la lista de países en el menú de selección
-    // for (let i = 0; i < verPaises[1].length; i++) { //se pone 4. Aún no colocamos el largo del objeto, no se puede con length
-    //   let showCountries = (verPaises[1][i]);
+    // for (let i = 0; i < countryList[1].length; i++) { //se pone 4. Aún no colocamos el largo del objeto, no se puede con length
+    //   let showCountries = (countryList[1][i]);
     //   document.getElementById("selectCountries").innerHTML += "<option value=" + i + "  id=selectCountries" + i + ">" + showCountries + "</option>";
     // }
 
 
     //Función para elegir países
     document.getElementById("selectCountries").addEventListener("click",
-      (evento) => {
-        evento.preventDefault();
+      (event) => {
+        event.preventDefault();
 
         let selectedCountry = document.getElementById("selectCountries").value;
 
 
         //Función para seleccionar
         document.getElementById("btnCallIndicators").addEventListener("click",
-          (evento) => {
-            evento.preventDefault();
+          (event) => {
+            event.preventDefault();
 
 
             document.getElementById('indexMain').style.display = 'none';
@@ -68,20 +62,22 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
             document.getElementById('indicators').innerHTML = '';
 
             // AQUÍ VA LA LLAMADA A LA FUNCIÓN
-            let searchCountry = verPaises[0][selectedCountry];
+            let searchCountry = countryList[0][selectedCountry];
             let returnArray = window.indicatorsNames(searchCountry); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
             for (let i = 0; i < returnArray.length; i++) {
               document.getElementById("indicators").innerHTML += "<option value=" + i + "  id=indicators" + i + ">" + returnArray[i] + "<br>" + "</option>";
             }
 
             document.getElementById("indicators").addEventListener("click",
-              (evento) => {
-                evento.preventDefault();
+              (event) => {
+                event.preventDefault();
+
+                document.getElementById('root2').innerHTML = '';//limpia de comentarios el lugar donde se imprimirá el promedio
 
                 let indicadorElegido = document.getElementById("indicators").value;
                 let selectedCountry = document.getElementById("selectCountries").value;
-                // console.log(verPaises[0][selectedCountry]);
-                let searchCountry = (verPaises[0][selectedCountry]);
+                // console.log(countryList[0][selectedCountry]);
+                let searchCountry = (countryList[0][selectedCountry]);
                 let nameIndicator = searchCountry.indicators[indicadorElegido];
                 let almacenarObjetoData = nameIndicator.data;
                 let retornoDatosYear = window.dataForYear(searchCountry, nameIndicator, almacenarObjetoData); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
@@ -91,14 +87,14 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                 for (let i = 0; i < retornoDatosYear.length; i++) {
                   retornoDatosYear[i]
                   document.getElementById("root").innerHTML += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>";
-                  /* += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>"; */
+                                                         /* += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>"; */
                 }
 
 
 
                 document.getElementById("btnOrdenar").addEventListener("click",
-                  (evento) => {
-                    evento.preventDefault();
+                  (event) => {
+                    event.preventDefault();
                     let retornoDatosYearOrdenado = window.orderDataForYear(retornoDatosYear);
                     document.getElementById('root').innerHTML = '';
                     for (let i = 0; i < retornoDatosYearOrdenado.length; i++) {
@@ -113,19 +109,22 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
 
 
                 document.getElementById("btnCalcularPromedio").addEventListener("click",
-                  (evento) => {
-                    evento.preventDefault();
+                  (event) => {
+                    event.preventDefault();
 
                     console.log(retornoDatosYear.length);
-
+                    if(retornoDatosYear.length>0){
                     let realizarCalculo = window.computeStats(retornoDatosYear);
-
-
-
                     document.getElementById('root2').innerHTML = '';
 
                     document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
 
+
+                  }else{
+
+                    // document.getElementById('root2').innerHTML = '';
+
+                  document.getElementById("root2").innerHTML += "<p>" + "No se encontraron datos disponibles"+ "</p>";}
 
                   })
 
