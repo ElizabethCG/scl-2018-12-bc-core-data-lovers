@@ -2,29 +2,25 @@
 //Función donde recorreré el arreglo de objetos para acceder a su propiedad name
 //Función para filtrar
 
-const paises = () => {
-  let arrayPaises = [];
-  let arrayPaisesb=[]
-  let listadoPaises=[];
+const country = () => {
+  let arrayCountryB = [];
+  let arrayCountryA = []
+  let listadoCountry = [];
 
-let direccion=window.WORLDBANK;
-    for (let prop in direccion) {
+  let route = window.WORLDBANK;
+  for (let property in route) {
 
-let direccionInicial= direccion[prop].indicators[0]; //así se debe indicar la llamada para que no de error
-let direccionSecundaria =direccionInicial.countryCode;
-let direccionTerciaria =direccionInicial.countryName;
+    let routeInitial = route[property].indicators[0]; //así se debe indicar la llamada para que no de error
+    // let routeSecond =routeInitial.countryCode;
+    let routeThird = routeInitial.countryName;
 
-arrayPaises.push(direccionTerciaria);
-arrayPaisesb.push(direccion[prop]);
-
-
-    }
-
-  listadoPaises.push(arrayPaisesb,arrayPaises);
-
-  return listadoPaises;
+    arrayCountryB.push(routeThird);
+    arrayCountryA.push(route[property]);
+  }
+  listadoCountry.push(arrayCountryA, arrayCountryB);
+  return listadoCountry;
 }
-window.paises = paises;
+window.country = country;
 
 
 
@@ -60,7 +56,6 @@ const dataForYear = (searchCountry, nameIndicator, almacenarObjetoData) => {
     }
   }
   console.log(otherObject.length);
-
   return otherObject; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
 }
 window.dataForYear = dataForYear;
@@ -95,18 +90,14 @@ window.orderDataForYear = orderDataForYear;
 // FUNCION QUE CALCULA EL PROMEDIO DE LOS DATOS
 
 const computeStats = (retornoDatosYear) => {
-
   const numbers = retornoDatosYear;
   let arr = [];
   numbers.forEach((currentValue) => {
     return arr.push(currentValue.valor)
   })
-
   const newNumbers = arr.reduce((elementoAnterior, elementoActual) => {
     return (elementoAnterior + elementoActual);
   });
-
   return newNumbers / arr.length;
 }
-
 window.computeStats = computeStats;
