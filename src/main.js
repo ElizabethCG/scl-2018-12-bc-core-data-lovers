@@ -88,7 +88,10 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                 let table = '';
                 for (let i = 0; i < retornoDatosYear.length; i++) {
 
-                  table += `<tr><td>${retornoDatosYear[i].year}</td><td>${retornoDatosYear[i].valor}</td></tr>`;
+
+
+                  table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
+
                   document.getElementById('root').innerHTML = table;
 
                 }
@@ -98,13 +101,11 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                     event.preventDefault();
                     let retornoDatosYearOrdenado = window.orderDataForYear(retornoDatosYear);
                     document.getElementById('root').innerHTML = '';
+                    let table = '';
                     for (let i = 0; i < retornoDatosYearOrdenado.length; i++) {
-                      retornoDatosYearOrdenado[i]
-                      document.getElementById("root").innerHTML += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>";
+                      table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
+                    document.getElementById('root').innerHTML = table;
                     }
-
-
-
                   })
 
 
