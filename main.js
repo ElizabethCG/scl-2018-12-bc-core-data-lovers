@@ -23,7 +23,7 @@ let verPaises = window.paises();
 
 
 
-document.getElementById("clickCountry").addEventListener("click", //transformar a una función para poder reutilizarlo desde distintos botones
+document.getElementById('clickCountry').addEventListener('click', //transformar a una función para poder reutilizarlo desde distintos botones
 
   (evento) => {
     evento.preventDefault();
@@ -33,7 +33,7 @@ document.getElementById("clickCountry").addEventListener("click", //transformar 
     let m = 0;
     verPaises[1].forEach((element) => {
       let showCountries = (verPaises[1][m]);
-      document.getElementById("selectCountries").innerHTML += "<option value=" + m + "  id=selectCountries" + m + ">" + showCountries + "</option>";
+      document.getElementById('selectCountries').innerHTML += '<option value=' + m + '  id=selectCountries' + m + '>' + showCountries + '</option>';
       m++;
     })
 
@@ -42,20 +42,20 @@ document.getElementById("clickCountry").addEventListener("click", //transformar 
     // Para mostrar la lista de países en el menú de selección
     // for (let i = 0; i < verPaises[1].length; i++) { //se pone 4. Aún no colocamos el largo del objeto, no se puede con length
     //   let showCountries = (verPaises[1][i]);
-    //   document.getElementById("selectCountries").innerHTML += "<option value=" + i + "  id=selectCountries" + i + ">" + showCountries + "</option>";
+    //   document.getElementById('selectCountries').innerHTML += '<option value=' + i + '  id=selectCountries' + i + '>' + showCountries + '</option>';
     // }
 
 
     //Función para elegir países
-    document.getElementById("selectCountries").addEventListener("click",
+    document.getElementById('selectCountries').addEventListener('click',
       (evento) => {
         evento.preventDefault();
 
-        let selectedCountry = document.getElementById("selectCountries").value;
+        let selectedCountry = document.getElementById('selectCountries').value;
 
 
         //Función para seleccionar
-        document.getElementById("btnCallIndicators").addEventListener("click",
+        document.getElementById('btnCallIndicators').addEventListener('click',
           (evento) => {
             evento.preventDefault();
 
@@ -64,22 +64,23 @@ document.getElementById("clickCountry").addEventListener("click", //transformar 
             document.getElementById('countryMain').style.display = 'none';
             document.getElementById('indicatorMain').style.display = 'block';
             document.getElementById('statisticsMain').style.display = 'none';
-            document.getElementById('indicators').style.display = "block";
+            document.getElementById('indicators').style.display = 'block';
             document.getElementById('indicators').innerHTML = '';
 
             // AQUÍ VA LA LLAMADA A LA FUNCIÓN
             let searchCountry = verPaises[0][selectedCountry];
             let returnArray = window.indicatorsNames(searchCountry); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
             for (let i = 0; i < returnArray.length; i++) {
-              document.getElementById("indicators").innerHTML += "<option value=" + i + "  id=indicators" + i + ">" + returnArray[i] + "<br>" + "</option>";
+              document.getElementById('indicators').innerHTML += '<option value=' + i + '   id=indicators' + i + '>' + returnArray[i] + '<br>' + '</option>';
+              document.getElementById('mostrarTabla').style.display = 'none';
             }
 
-            document.getElementById("indicators").addEventListener("click",
+            document.getElementById('indicators').addEventListener('click',
               (evento) => {
                 evento.preventDefault();
 
-                let indicadorElegido = document.getElementById("indicators").value;
-                let selectedCountry = document.getElementById("selectCountries").value;
+                let indicadorElegido = document.getElementById('indicators').value;
+                let selectedCountry = document.getElementById('selectCountries').value;
                 // console.log(verPaises[0][selectedCountry]);
                 let searchCountry = (verPaises[0][selectedCountry]);
                 let nameIndicator = searchCountry.indicators[indicadorElegido];
@@ -87,27 +88,28 @@ document.getElementById("clickCountry").addEventListener("click", //transformar 
                 let retornoDatosYear = window.dataForYear(searchCountry, nameIndicator, almacenarObjetoData); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
 
                 document.getElementById('root').innerHTML = '';
+                document.getElementById('mostrarTabla').style.display = 'block';
                 let table = '';
                 for (let i = 0; i < retornoDatosYear.length; i++) {
-                  table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
+                  table += `<tr><td class='pl-3'>${retornoDatosYear[i].year}</td><td class='pl-3'>${retornoDatosYear[i].valor}</td></tr>`;
                   document.getElementById('root').innerHTML = table;
                 }
 
-                document.getElementById("btnOrdenar").addEventListener("click",
+                document.getElementById('btnOrdenar').addEventListener('click',
                   (evento) => {
                     evento.preventDefault();
                     let retornoDatosYearOrdenado = window.orderDataForYear(retornoDatosYear);
                     document.getElementById('root').innerHTML = '';
                     let table = '';
                     for (let i = 0; i < retornoDatosYearOrdenado.length; i++) {
-                      table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
+                      table += `<tr><td class='pl-3'>${retornoDatosYear[i].year}</td><td class='pl-3'>${retornoDatosYear[i].valor}</td></tr>`;
                     document.getElementById('root').innerHTML = table;
                     }
                   })
 
 
 
-                document.getElementById("btnCalcularPromedio").addEventListener("click",
+                document.getElementById('btnCalcularPromedio').addEventListener('click',
                   (evento) => {
                     evento.preventDefault();
                     let realizarCalculo = window.computeStats(retornoDatosYear);
@@ -116,7 +118,7 @@ document.getElementById("clickCountry").addEventListener("click", //transformar 
 
                     document.getElementById('root2').innerHTML = '';
 
-                    document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
+                    document.getElementById('root2').innerHTML += '<p>' + 'El promedio es: ' + realizarCalculo + '<br>' + '</p>';
                   })
               })
           })
