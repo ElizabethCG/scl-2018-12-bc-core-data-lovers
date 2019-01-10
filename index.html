@@ -55,7 +55,7 @@
     <!--    INDEX    -->
     <main id="indexMain" class="row my-4">
       <div class="col-12 mb-3">
-        <h1 class="text-center">Acceda hoaljasjjsja a la información estadística de América Latina del Banco Mundial</h1>
+        <h1 class="text-center">Acceda a la información estadística de América Latina del Banco Mundial</h1>
       </div>
       <section class="row justify-content-around">
 
@@ -84,7 +84,7 @@
           </div>
           <p class="pl-3">Acceda a la lista de paises de latinoamerica y selecciona los indicadores</p>
           <div>
-            <img class="img-fluid d-none d-md-block" src="img/estadisticas.png" alt="">
+            <img class="img-fluid d-none d-md-block" src="img/pais_estadisticas.jpg" alt="">
           </div>
         </div>
 
@@ -163,24 +163,36 @@
 
           <select name="indicators" id="indicators">
           </select>
+          <div class="row mt-4">
+            <div class="col-6">
+              <h2>Estadisticas</h2>
+              <table class="table table-bordered table-hover table-sm">
+                <thead class="table-info">
+                  <tr>
+                    <th>Año</th>
+                    <th>Porcentaje</th>
+                </thead>
+                <tbody id="root">
 
-          <div id="root">
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <div>
-            <input type="button" id="btnOrdenar" value="Ordenar por año descendente" />
+            <div>
+              <input type="button" id="btnOrdenar" value="Ordenar por año descendente" />
+            </div>
+
+            <div>
+              <input type="button" id="btnCalcularPromedio" value=" Calcular promedio" />
+            </div>
+
+            <div id="root2">
+            </div>
+
+
           </div>
-
-          <div>
-            <input type="button" id="btnCalcularPromedio" value=" Calcular promedio" />
-          </div>
-
-          <div id="root2">
-          </div>
-
-
-        </div>
-        <hr>
+          <hr>
       </section>
     </main>
 

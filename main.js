@@ -18,6 +18,7 @@ goCountry.addEventListener('click', () => {
 
 
 
+
 let countryList = window.country();
 document.getElementById("clickCountry").addEventListener("click",  //transformar a una función para poder reutilizarlo desde distintos botones
   (event) => {
@@ -27,6 +28,7 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
     let m=0;
     countryList[1].forEach((element) => {
       let showCountries = (countryList[1][m]);
+
       document.getElementById("selectCountries").innerHTML += "<option value=" + m + "  id=selectCountries" + m + ">" + showCountries + "</option>";
       m++;
     })
@@ -82,15 +84,14 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
                 let almacenarObjetoData = nameIndicator.data;
                 let retornoDatosYear = window.dataForYear(searchCountry, nameIndicator, almacenarObjetoData); //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
 
-                console.log(retornoDatosYear);
                 document.getElementById('root').innerHTML = '';
+                let table = '';
                 for (let i = 0; i < retornoDatosYear.length; i++) {
-                  retornoDatosYear[i]
-                  document.getElementById("root").innerHTML += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>";
-                                                         /* += "<p>" + retornoDatosYear[i].year + " " + retornoDatosYear[i].valor + "<br>" + "</p>"; */
+
+                  table += `<tr><td>${retornoDatosYear[i].year}</td><td>${retornoDatosYear[i].valor}</td></tr>`;
+                  document.getElementById('root').innerHTML = table;
+
                 }
-
-
 
                 document.getElementById("btnOrdenar").addEventListener("click",
                   (event) => {
@@ -109,11 +110,13 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
 
 
                 document.getElementById("btnCalcularPromedio").addEventListener("click",
+
                   (event) => {
                     event.preventDefault();
 
                     console.log(retornoDatosYear.length);
                     if(retornoDatosYear.length>0){
+
                     let realizarCalculo = window.computeStats(retornoDatosYear);
                     document.getElementById('root2').innerHTML = '';
 
@@ -122,17 +125,15 @@ document.getElementById("clickCountry").addEventListener("click",  //transformar
 
                   }else{
 
+
                     // document.getElementById('root2').innerHTML = '';
 
                   document.getElementById("root2").innerHTML += "<p>" + "No se encontraron datos disponibles"+ "</p>";}
 
+
+                    document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
+
                   })
-
-
-
-
-
-
               })
           })
       })
