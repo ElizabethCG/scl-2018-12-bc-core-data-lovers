@@ -30,7 +30,6 @@ window.country = country;
 
 
 const indicatorsNames = (searchCountry) => {   //searchCountry (condición)//
-  console.log(searchCountry);
   let names = []; // arreglo vacío donde pushearé los nombres de indicadores.
   for (let i = 0; i < searchCountry.indicators.length; i++) { //searchCountry
     let nameIndicator = searchCountry.indicators[i];
@@ -55,7 +54,7 @@ const dataForYear = (searchCountry, nameIndicator, almacenarObjetoData) => {
       otherObject.push(newObject);
     }
   }
-  console.log(otherObject.length);
+
   return otherObject; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
 }
 window.dataForYear = dataForYear;
