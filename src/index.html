@@ -108,13 +108,17 @@
 
     <main id="countryMain" class="row my-4">
       <section class="col-12">
-        <div class="col-12">
+        <div class="col">
           <h2>
-            <img src="img/paises.png" alt="icono de países" width="46">
+            <span style="font-size: 24px; color:#22A6F5;"><i class="fas fa-globe-americas"></i></span>
             PAISES</h2>
         </div>
         <hr>
-        <!--    <ul>
+        <div class="pl-3">
+          <div>
+            <p>Seleccione un país</p>
+          </div>
+          <!--    <ul>
           <li>Argentina</li>
           <li>Bolivia</li>
           <li>Brasil</li>
@@ -137,21 +141,14 @@
           <li>Venezuela</li>
         </ul> -->
 
-        <!-- VER SI DEBE IR DENTRO DE UN FORM O NO ES NECESARIO -->
-        <select name="selectCountries" id="selectCountries">
-        </select>
+          <!-- VER SI DEBE IR DENTRO DE UN FORM O NO ES NECESARIO -->
+          <select name="selectCountries" id="selectCountries">
+          </select>
 
-        <div>
-          <input type="button" id="btnCallIndicators" value="Ver indicadores" />
+          <div class="pt-4">
+            <input type="button" class="btn btn-info" id="btnCallIndicators" value="Ver indicadores" />
+          </div>
         </div>
-
-        <select name="elegirPais" id="elegirPais">
-        </select>
-
-        <div>
-          <input type="button" id="btnllamarIndicadores" value="Ver indicadores Nvo" />
-        </div>
-
       </section>
     </main>
 
@@ -162,38 +159,37 @@
       <section class="col-12">
         <div class="col-12">
           <h2>
-            <img src="img/paises.png" alt="icono de países" width="46">
+            <span style="font-size: 24px; color:#22A6F5;"><i class="fas fa-globe-americas"></i></span>
             INDICADORES</h2>
-
-
-
-          <select name="indicators" id="indicators">
-          </select>
-          <div id="mostrarTabla" class="row mt-4">
-            <div class="col-6">
-              <h3>Estadisticas</h3>
-              <table class="table table-bordered table-hover table-sm">
-                <thead class="table-info">
-                  <tr>
-                    <th class="pl-3"><span id="btnOrdenar"><i title="Ordenar descendente" class="fas fa-sort-down"></i></span><span class="pl-3"></span>Año</th>
-                    <th class="pl-3">Datos</span></th>
-                </thead>
-                <tbody id="root">
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-            <div>
-              <input type="button" id="btnCalcularPromedio" value=" Calcular promedio" />
-            </div>
-
-            <div id="root2">
-            </div>
-
-
-          </div>
           <hr>
+          <div class="pl-3">
+            <div>
+              <p>Seleccione un indicador</p>
+            </div>
+            <select name="indicators" id="indicators">
+            </select>
+            <div id="mostrarTabla" class="row mt-4">
+              <div class="col-6">
+                <h3>Estadisticas</h3>
+                <table class="table table-bordered table-hover table-sm">
+                  <thead class="table-info">
+                    <tr>
+                      <th class="pl-3"><span id="btnOrdenar"><i title="Ordenar descendente" class="fas fa-sort-down"></i></span><span
+                          class="pl-3"></span>Año</th>
+                      <th class="pl-3">Datos</span></th>
+                  </thead>
+                  <tbody id="root">
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="col-6">
+                <input type="button" class="btn btn-info" id="btnCalcularPromedio" value=" Calcular promedio" />
+              <div id="root2">
+              </div>
+            </div>
+          </div>
       </section>
     </main>
 
@@ -211,11 +207,14 @@
     </main>
   </div>
   <!-- footer -->
-  <footer class="row">
-    <div class="col">
-      <img src="img/logo.png" alt="logo del banco" width="200">
+  <footer class="row pl-5">
+    <div class="container">
+      <div class="col-12">
+        <img src="img/logo.png" alt="logo del banco" width="200">
+      </div>
     </div>
   </footer>
+
 
   <!-- PARA QUE ES ESTE DIV??? ELY -->
   <!-- <div id="root"></div> -->
