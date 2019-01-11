@@ -117,12 +117,14 @@ window.onload = () => {
                   document.getElementById("btnCalcularPromedio").addEventListener("click",
                     (event) => {
                       event.preventDefault();
-                      if (retornoDatosYear.length > 0) {
+
+                      if (retornoDatosYear.length > 0 && nameIndicator.indicatorName.includes('%')
+                        ||retornoDatosYear.length > 0 && nameIndicator.indicatorName.includes('Población')) {
                         let realizarCalculo = window.computeStats(retornoDatosYear);
                         document.getElementById('root2').innerHTML = '';
                         document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
                       } else {
-                        document.getElementById("root2").innerHTML = "<p>" + "No se puede calcular promedio ya que no hay información disponible." + "</p>";
+                        document.getElementById("root2").innerHTML = "<p>" + "No se puede realizar cálculos en base a esta información" + "</p>";
                       }
                     })
                 })
