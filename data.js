@@ -60,11 +60,11 @@ const orderDataForYear = (retornoDatosYear) => {
     if (a.year > b.year) {
       return -1;
     }
-    if (a.year < b.year) {
-      return 1;
-    }
+    // if (a.year < b.year) {
+    //   return 1;
+    // }
     // a must be equal to b
-    return 0;
+    // return 0;
   });
   return orderedArray; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
 }
