@@ -29,10 +29,10 @@ describe('dataForYear', () => {
   });
 
   it('returns `dataForYear`', () => {
-    expect(dataForYear(searchCountry, nameIndicator, almacenarObjetoData)).toContain('Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)');
+    expect(dataForYear(almacenarObjetoData)).toContain('Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)');
   });
 
-  
+
 });
 
 
