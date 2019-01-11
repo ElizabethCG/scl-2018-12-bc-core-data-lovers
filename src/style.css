@@ -59,3 +59,17 @@ footer {
 h2 {
   font-size: 20px;
 }
+
+.iconos {
+  font-size: 42px;
+  color: #22A6F5;
+}
+
+.iconos-peq {
+  font-size: 24px;
+  color: #22A6F5;
+}
+
+#root2 {
+  background-color: #FFFFFF;
+}
