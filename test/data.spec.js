@@ -8,48 +8,64 @@ describe('Entrega listado de paises', () => {
     expect(typeof country).toBe('function');
   });
   it('returns `countriesNames`', () => {
-    expect(country()).toContainEqual(["Perú", "México", "Brasil", "Chile"] );
+    expect(window.country()).toContainEqual(["Perú", "México", "Brasil", "Chile"] );
 });
 });
 
 
 
-describe('indicatorsNames', () => {
+describe('Entrega listado de indicadores', () => {
   it('is a function', () => {
     expect(typeof indicatorsNames).toBe('function');
   });
   it('returns `indicatorsNames`', () => {
-    expect(indicatorsNames(window.WORLDBANK.MEX)).toContain('Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)');
+    expect(window.indicatorsNames(window.WORLDBANK.MEX)).toContain('Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)');
 });
 });
 
-describe('dataForYear', () => {
+describe('Entrega datos asociados a un indicador', () => {
   it('is a function', () => {
     expect(typeof dataForYear).toBe('function');
   });
 
   it('returns `dataForYear`', () => {
-    expect(dataForYear(almacenarObjetoData)).toContain('Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)');
+
+    let nameIndicator = window.WORLDBANK.MEX.indicators[0];
+    let almacenarObjetoData = nameIndicator.data;
+
+    expect(window.dataForYear(almacenarObjetoData)).toContainEqual({"valor": 33.1, "year": 1990});
   });
 
 
 });
 
 
-describe('orderDataForYear', () => {
+describe('Ordena la informacion por año', () => {
   it('is a function', () => {
     expect(typeof orderDataForYear).toBe('function');
   });
+
+  it('returns `orderDataForYear`', () => {
+    let nameIndicator = window.WORLDBANK.MEX.indicators[0];
+    let almacenarObjetoData = nameIndicator.data;
+    let retornoDatosYear = window.dataForYear(almacenarObjetoData);
+    expect(window.orderDataForYear(retornoDatosYear)).not.toBe(window.dataForYear(almacenarObjetoData));
+  });
 });
 
 
-describe('computeStats', () => {
+describe('Realiza calculo', () => {
   it('is a function', () => {
     expect(typeof computeStats).toBe('function');
   });
 
+  it('returns `computeStats`', () => {
+    let nameIndicator = window.WORLDBANK.MEX.indicators[0];
+    let almacenarObjetoData = nameIndicator.data;
+    let retornoDatosYear = window.dataForYear(almacenarObjetoData);
+    expect(typeof (window.computeStats(retornoDatosYear))).toBe('number');
+  });
 
-  // it('returns `indicatorsNames`', () => {
-  //   expect(indicatorsNames()).toBe("Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)");
-  // });
+
+
 });
