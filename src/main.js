@@ -1,3 +1,4 @@
+
 window.onload = () => {
 
 
@@ -25,6 +26,7 @@ window.onload = () => {
       })
 
 
+
       //Función para seleccionar un país
       document.getElementById("selectCountries").addEventListener("click",
         (event) => {
@@ -37,6 +39,7 @@ window.onload = () => {
           document.getElementById("btnCallIndicators").addEventListener("click",
             (event) => {
               event.preventDefault();
+
 
 
               document.getElementById('indexMain').style.display = 'none';
@@ -58,7 +61,9 @@ window.onload = () => {
                 (event) => {
                   event.preventDefault();
 
-                  document.getElementById('root2').innerHTML = ''; 
+
+                  document.getElementById('root2').innerHTML = '';
+
 
                   let indicadorElegido = document.getElementById("indicators").value;
                   let selectedCountry = document.getElementById("selectCountries").value;
@@ -67,7 +72,7 @@ window.onload = () => {
                   let almacenarObjetoData = nameIndicator.data;
 
                   //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
-                  let retornoDatosYear = window.dataForYear(almacenarObjetoData); 
+                  let retornoDatosYear = window.dataForYear(almacenarObjetoData);
                   document.getElementById('root').innerHTML = '';
                   document.getElementById('mostrarTabla').style.display = 'block';
                   let table = '';
@@ -83,10 +88,24 @@ window.onload = () => {
                       document.getElementById('root').innerHTML = '';
                       let table = '';
                       for (let i = 0; i < retornoDatosYearOrdenado.length; i++) {
-                        table += `<tr><td class='pl-3'>${retornoDatosYear[i].year}</td><td class='pl-3'>${retornoDatosYear[i].valor}</td></tr>`;
+                        table += `<tr><td class='pl-3'>${retornoDatosYearOrdenado[i].year}</td><td class='pl-3'>${retornoDatosYearOrdenado[i].valor}</td></tr>`;
                         document.getElementById('root').innerHTML = table;
                       }
                     })
+
+                          document.getElementById("btnOrdenar2").addEventListener("click",
+                          (event) => {
+                          event.preventDefault();
+                          let retornoDatosYear = window.dataForYear(almacenarObjetoData);
+                          document.getElementById('root').innerHTML = '';
+                          let table = '';
+                        for (let i = 0; i < retornoDatosYear.length; i++) {
+                    table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
+                      document.getElementById('root').innerHTML = table;
+                      }
+                  })
+
+
 
                   document.getElementById("btnCalcularPromedio").addEventListener("click",
                     (event) => {
@@ -96,7 +115,7 @@ window.onload = () => {
                         document.getElementById('root2').innerHTML = '';
                         document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
                       } else {
-                        document.getElementById("root2").innerHTML = "<p>" + "No se encontraron datos disponibles" + "</p>";
+                        document.getElementById("root2").innerHTML = "<p>" + "No hay información disponible" + "</p>";
                       }
                     })
                 })

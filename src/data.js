@@ -4,7 +4,6 @@ const country = () => {
   let arrayCountryA = [];
   let arrayCountryB = [];
   let listadoCountry = [];
-
   let route = window.WORLDBANK;
   for (let property in route) {
     let routeInitial = route[property].indicators[0]; //así se debe indicar la llamada para que no de error
@@ -17,10 +16,12 @@ const country = () => {
 }
 window.country = country;
 
+
 //Función que trae todos los indicadores y genera un array con ellos
 const indicatorsNames = (searchCountry) => { //searchCountry (condición)
   let names = []; //arreglo vacío donde pushearé los nombres de indicadores
-  for (let i = 0; i < searchCountry.indicators.length; i++) { 
+  for (let i = 0; i < searchCountry.indicators.length; i++) {
+
     let nameIndicator = searchCountry.indicators[i];
     names.push(nameIndicator.indicatorName);
   }
@@ -29,8 +30,10 @@ const indicatorsNames = (searchCountry) => { //searchCountry (condición)
 window.indicatorsNames = indicatorsNames;
 
 
+
 //Función que filtra por país y nombre del indicador
 const dataForYear = (almacenarObjetoData) => {
+// >>>>>>> upstream/master
   let otherObject = [];
   for (let k = 1960; k <= 2017; k++) { //aquí está buscando el atributo dentro de data (que está dentro de otra data)
     let lookYear = (almacenarObjetoData[k]);
@@ -52,7 +55,6 @@ window.dataForYear = dataForYear;
 
 // FUNCION QUE ORDENA
 const orderDataForYear = (retornoDatosYear) => {
-
   let orderedArray = retornoDatosYear;
   orderedArray.sort(function (a, b) {
     if (a.year > b.year) {
