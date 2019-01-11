@@ -44,7 +44,7 @@ window.onload = () => {
 
               document.getElementById('indexMain').style.display = 'none';
               document.getElementById('countryMain').style.display = 'none';
-              document.getElementById("titulo-indicadores").innerHTML = countryList[1][selectedCountry];
+              document.getElementById("titulo-indicadores").innerHTML = `<h3 class="pl-4"> ${countryList[1][selectedCountry]} </h3>`;
 
 
               document.getElementById('indicatorMain').style.display = 'block';
