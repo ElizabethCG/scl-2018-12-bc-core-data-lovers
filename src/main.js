@@ -44,7 +44,7 @@ window.onload = () => {
 
               document.getElementById('indexMain').style.display = 'none';
               document.getElementById('countryMain').style.display = 'none';
-              document.getElementById("titulo-indicadores").innerHTML = "<h2>" + "INDICADORES " + countryList[1][selectedCountry] + "</h2>";
+              document.getElementById("titulo-indicadores").innerHTML = countryList[1][selectedCountry];
 
 
               document.getElementById('indicatorMain').style.display = 'block';

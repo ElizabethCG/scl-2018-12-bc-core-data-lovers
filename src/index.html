@@ -64,7 +64,7 @@
         <div class="col-12 col-md-4 col-lg-3 section-div py-3 border">
           <div class="col">
             <h3 class="text-left">
-              <span style="font-size: 42px; color:#22A6F5;"><i class="fab fa-font-awesome"></i></span>
+              <span class="iconos"><i class="fab fa-font-awesome"></i></span>
               PERFILES NACIONALES</h3>
           </div>
           <div>
@@ -80,7 +80,7 @@
         <div class="col-12 col-md-4 col-lg-3 py-3 section-div" id="clickCountry">
           <div class="col">
             <h3>
-              <span style="font-size: 42px; color:#22A6F5;"><i class="fas fa-globe-americas"></i></span>
+              <span class="iconos"><i class="fas fa-globe-americas"></i></span>
               PAISES</h3>
           </div>
           <p class="pl-3">Acceda a la lista de paises de latinoamerica y selecciona los indicadores</p>
@@ -93,7 +93,7 @@
         <div class="col-12 col-md-4 col-lg-3 py-3 section-div">
           <div class="col">
             <h3>
-              <span style="font-size: 42px; color:#22A6F5;"><i class="fas fa-chart-bar"></i></span>
+              <span class="iconos"><i class="fas fa-chart-bar"></i></span>
               ESTADISTICAS E INDICADORES</h3>
           </div>
           <p class="pl-3">Acceda a más de 140 estadisticas e indicadores comparables internacionalmente de los países de Latino América</p>
@@ -110,7 +110,7 @@
       <section class="col-12">
         <div class="col">
           <h2>
-            <span style="font-size: 24px; color:#22A6F5;"><i class="fas fa-globe-americas"></i></span>
+            <span class="iconos-peq"><i class="fas fa-globe-americas"></i></span>
             PAISES</h2>
         </div>
         <hr>
@@ -134,26 +134,25 @@
 
     <main id="indicatorMain" class="row my-4">
       <section class="col-12">
-        <div class="col-12">
-          <h2 id="titulo-indicadores">
-            <span style="font-size: 24px; color:#22A6F5;"><i class="fas fa-globe-americas"></i></span>
-            INDICADORES</h2>
+        <div class="col">
+          <h2>
+            <span class="iconos-peq"><i class="fas fa-globe-americas"></i></span>
+            INDICADORES</h2> <h3 class="pl-4" id="titulo-indicadores"></h3>
           <hr>
         </div>
-        <div>
+        <div class="pl-3">
           <h3>Seleccione un indicador</h3>
         </div>
-        <select name="indicators" id="indicators">
+        <select class="ml-3" name="indicators" id="indicators">
         </select>
         <div id="mostrarTabla" class="row">
           <div class="col-12">
-            <div class="my-4">
+            <div class="my-4 pl-3">
               <h3>Estadisticas</h3>
-
             </div>
-            <div class="col-4">
-              <input type="button" class="btn btn-info" id="btnCalcularPromedio" value=" Calcular promedio" />
-              <div id="root2">
+            <div class="col-4 pb-4">
+              <input type="button" class="btn btn-info" id="btnCalcularPromedio" value=" Calcular promedio"/>
+              <div class="col my-2 py-2 border" id="root2">
               </div>
             </div>
             <div class="row">
@@ -166,7 +165,6 @@
                         <span class="pl-3">Año</span> <span id="btnOrdenar2"><i title="Ordenar descendente" class="fas fa-sort-up"></i></span>
                       </th>
                       <th scope="col">Datos</th>
-
                     </tr>
                   </thead>
                   <tbody id="root">
