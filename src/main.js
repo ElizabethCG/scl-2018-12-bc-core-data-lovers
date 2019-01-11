@@ -44,7 +44,13 @@ window.onload = () => {
 
               document.getElementById('indexMain').style.display = 'none';
               document.getElementById('countryMain').style.display = 'none';
+              document.getElementById("titulo-indicadores").innerHTML = "<h2>" + "INDICADORES " + countryList[1][selectedCountry] + "</h2>";
+
+
               document.getElementById('indicatorMain').style.display = 'block';
+
+
+
               document.getElementById('statisticsMain').style.display = 'none';
               document.getElementById('indicators').style.display = 'block';
               document.getElementById('indicators').innerHTML = '';
@@ -60,10 +66,7 @@ window.onload = () => {
               document.getElementById("indicators").addEventListener("click",
                 (event) => {
                   event.preventDefault();
-
-
                   document.getElementById('root2').innerHTML = '';
-
 
                   let indicadorElegido = document.getElementById("indicators").value;
                   let selectedCountry = document.getElementById("selectCountries").value;
@@ -76,10 +79,14 @@ window.onload = () => {
                   document.getElementById('root').innerHTML = '';
                   document.getElementById('mostrarTabla').style.display = 'block';
                   let table = '';
+
                   for (let i = 0; i < retornoDatosYear.length; i++) {
                     table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
                     document.getElementById('root').innerHTML = table;
                   }
+                  if(retornoDatosYear.length<=0){document.getElementById("root2").innerHTML = "<p>" + "Para este País-Indicador no hay información disponible" + "</p>";}
+
+
 
                   document.getElementById("btnOrdenar").addEventListener("click",
                     (event) => {
@@ -99,9 +106,9 @@ window.onload = () => {
                           let retornoDatosYear = window.dataForYear(almacenarObjetoData);
                           document.getElementById('root').innerHTML = '';
                           let table = '';
-                        for (let i = 0; i < retornoDatosYear.length; i++) {
-                    table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
-                      document.getElementById('root').innerHTML = table;
+                          for (let i = 0; i < retornoDatosYear.length; i++) {
+                          table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
+                          document.getElementById('root').innerHTML = table;
                       }
                   })
 
@@ -115,7 +122,7 @@ window.onload = () => {
                         document.getElementById('root2').innerHTML = '';
                         document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
                       } else {
-                        document.getElementById("root2").innerHTML = "<p>" + "No hay información disponible" + "</p>";
+                        document.getElementById("root2").innerHTML = "<p>" + "No se puede calcular promedio ya que no hay información disponible." + "</p>";
                       }
                     })
                 })
