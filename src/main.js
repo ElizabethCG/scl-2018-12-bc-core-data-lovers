@@ -85,7 +85,7 @@ window.onload = () => {
                     table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
                     document.getElementById('root').innerHTML = table;
                   }
-                  if(retornoDatosYear.length<=0){document.getElementById("root2").innerHTML = "<p>" + "Para este País-Indicador no hay información disponible" + "</p>";}
+                  if (retornoDatosYear.length <= 0) { document.getElementById("root2").innerHTML = "<p>" + "Para este País-Indicador no hay información disponible" + "</p>"; }
 
 
 
@@ -101,17 +101,17 @@ window.onload = () => {
                       }
                     })
 
-                          document.getElementById("btnOrdenar2").addEventListener("click",
-                          (event) => {
-                          event.preventDefault();
-                          let retornoDatosYear = window.dataForYear(almacenarObjetoData);
-                          document.getElementById('root').innerHTML = '';
-                          let table = '';
-                          for (let i = 0; i < retornoDatosYear.length; i++) {
-                          table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
-                          document.getElementById('root').innerHTML = table;
+                  document.getElementById("btnOrdenar2").addEventListener("click",
+                    (event) => {
+                      event.preventDefault();
+                      let retornoDatosYear = window.dataForYear(almacenarObjetoData);
+                      document.getElementById('root').innerHTML = '';
+                      let table = '';
+                      for (let i = 0; i < retornoDatosYear.length; i++) {
+                        table += `<tr><td class="pl-3">${retornoDatosYear[i].year}</td><td class="pl-3">${retornoDatosYear[i].valor}</td></tr>`;
+                        document.getElementById('root').innerHTML = table;
                       }
-                  })
+                    })
 
 
 
@@ -120,7 +120,7 @@ window.onload = () => {
                       event.preventDefault();
 
                       if (retornoDatosYear.length > 0 && nameIndicator.indicatorName.includes('%')
-                        ||retornoDatosYear.length > 0 && nameIndicator.indicatorName.includes('Población')) {
+                        || retornoDatosYear.length > 0 && nameIndicator.indicatorName.includes('Población')) {
                         let realizarCalculo = window.computeStats(retornoDatosYear);
                         document.getElementById('root2').innerHTML = '';
                         document.getElementById("root2").innerHTML += "<p>" + "El promedio es: " + realizarCalculo + "<br>" + "</p>";
