@@ -21,7 +21,6 @@ window.country = country;
 const indicatorsNames = (searchCountry) => { //searchCountry (condición)
   let names = []; //arreglo vacío donde pushearé los nombres de indicadores
   for (let i = 0; i < searchCountry.indicators.length; i++) {
-
     let nameIndicator = searchCountry.indicators[i];
     names.push(nameIndicator.indicatorName);
   }
