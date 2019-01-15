@@ -83,3 +83,65 @@ const computeStats = (retornoDatosYear) => {
   return newNumbers / arr.length;
 }
 window.computeStats = computeStats;
+
+
+
+
+//Función para tomar los datos en formato array para graficar
+const dataGraphics = (almacenarObjetoData) => {
+  const originData = almacenarObjetoData;
+  console.log(originData);
+  let otherObject = [];
+
+         for (let property in originData) {
+           console.log(originData[property]);
+         if (originData[property] === "") {
+           continue; //si pasa eso que no haga nada
+         } else {
+             let arr = [];
+             arr.push(property);
+             arr.push(originData[property]);
+              // originData.forEach((currentValue) => {
+              // return arr.push(currentValue)
+              // return arr.push(currentValue.valor)
+               console.log(arr);
+               otherObject.push(arr);
+      }
+
+  }
+  return otherObject; //retorno el arreglo de objetos para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
+}
+
+window.dataGraphics = dataGraphics;
+
+
+window.google;
+window.google.charts.load('current',{packages:['corechart']});
+window.google.charts.setOnLoadCallback(dibujar());
+
+
+
+function dibujar(){
+
+var data = new google.visualization.DataTable();
+// var data=google.visualization.arrayToDataTable([
+
+data.addColumn('string','Ciudad');
+ data.addColumn('number','%');
+
+
+data.addRows(
+window.retornoDatosEnArray
+
+ // [['Cd Mexico',700],['Bogota',651],['Lima',581],['Caracas',552],['Montevideo',357]]
+// ]
+);
+
+
+var opciones={chart:{'title':'Nombre del indicador','subtitle':'Valores en %'},'width':500,'height':500};
+
+
+var grafica=new window.google.visualization.LineChart(document.getElementById('charts'));
+grafica.draw(data,opciones);
+
+}
