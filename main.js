@@ -1,7 +1,30 @@
 
+// CODIGO PARA GRAFICOS
+
+
+
+// function dibujar(){
+// var data= new google.visualization.DataTable();
+// data.addColumn('string','Ciudad');
+// data.addColumn('number','visitas');
+//
+// data.addRows(
+//
+// [['Cd Mexico',700],['Bogota',651],['Lima',581],['Caracas',552],['Montevideo',357]]
+//
+// );
+//
+//
+// var opciones={'title':'Visitas de mi web','width':500,'height':300};
+//
+//
+// var grafica=new window.google.visualization.PieChart(document.getElementById('charts'));
+// grafica.draw(data,opciones);
+//
+// }
+
 
 window.onload = () => {
-
 
   document.getElementById('countryMain').style.display = 'none';
   document.getElementById('indicatorMain').style.display = 'none';
@@ -77,6 +100,10 @@ window.onload = () => {
 
                   //llamada a la función indicatorsNames y retorno de array con el total de indicadores pra un país seleccionado
                   let retornoDatosYear = window.dataForYear(almacenarObjetoData);
+                  // let retornoDatosEnArray = window.dataGraphics(almacenarObjetoData);
+                  //
+                  // console.log(retornoDatosEnArray);
+
                   document.getElementById('root').innerHTML = '';
                   document.getElementById('mostrarTabla').style.display = 'block';
                   let table = '';
@@ -128,6 +155,31 @@ window.onload = () => {
                         document.getElementById("root2").innerHTML = "<p>" + "No se puede realizar cálculos en base a esta información" + "</p>";
                       }
                     })
+
+
+                    document.getElementById("btnGraficar").addEventListener("click",
+                      (event) => {
+                        event.preventDefault();
+                        let retornoDatosEnArray = window.dataGraphics(almacenarObjetoData);
+                        window.retornoDatosEnArray=retornoDatosEnArray;
+                        
+                        dibujar();
+                        // window.google;
+                        // window.google.charts.load('current',{packages:['corechart']});
+                        // window.google.charts.setOnLoadCallback(dibujar(window.retornoDatosEnArray));
+
+
+
+                      })
+
+
+
+
+
+
+
+
+
                 })
             })
         })
