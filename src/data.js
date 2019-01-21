@@ -22,7 +22,7 @@ const indicatorsNames = (searchCountry) => { //searchCountry (condición)
   let names = []; //arreglo vacío donde pushearé los nombres de indicadores
   for (let i = 0; i < searchCountry.indicators.length; i++) {
     let nameIndicator = searchCountry.indicators[i];
-    names.push(nameIndicator.indicatorName);
+    names.push((nameIndicator.indicatorName).trim());
   }
   return names; //retorno el arreglo de nombres para luego tomarlo desde el archivo main.js y hacer la visualización de datos con el DOM
 }
@@ -123,11 +123,11 @@ window.google.charts.setOnLoadCallback(dibujar());
 
 function dibujar(){
 
-var data = new google.visualization.DataTable();
+let data = new google.visualization.DataTable();
 // var data=google.visualization.arrayToDataTable([
 
 data.addColumn('string','Ciudad');
- data.addColumn('number','%');
+data.addColumn('number','%');
 
 
 data.addRows(
@@ -141,7 +141,7 @@ window.retornoDatosEnArray
 var opciones={chart:{'title':'Nombre del indicador','subtitle':'Valores en %'},'width':500,'height':500};
 
 
-var grafica=new window.google.visualization.LineChart(document.getElementById('charts'));
+var grafica=new window.google.visualization.LineChart(document.getElementById('root2'));
 grafica.draw(data,opciones);
 
 }

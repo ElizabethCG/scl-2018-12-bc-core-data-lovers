@@ -1,27 +1,32 @@
 
-// CODIGO PARA GRAFICOS
+
+const worldbankApi = fetch("data/worldbank/worldbank.json");
+
+
+worldbankApi.then(result => {return result.json();})
+.then(result => {
+  arrWorldbank = result.MEX;
 
 
 
-// function dibujar(){
-// var data= new google.visualization.DataTable();
-// data.addColumn('string','Ciudad');
-// data.addColumn('number','visitas');
-//
-// data.addRows(
-//
-// [['Cd Mexico',700],['Bogota',651],['Lima',581],['Caracas',552],['Montevideo',357]]
-//
-// );
-//
-//
-// var opciones={'title':'Visitas de mi web','width':500,'height':300};
-//
-//
-// var grafica=new window.google.visualization.PieChart(document.getElementById('charts'));
-// grafica.draw(data,opciones);
-//
-// }
+  for (let property in arrWorldbank) {
+    console.log(arrWorldbank[property]);
+
+}
+
+
+
+  // arrWorldbank.forEach(element => {
+  //   console.log(element);
+
+  // });
+
+
+  // createGoogleChart(arrPokemones);
+}).catch(err => {
+  // Mostrar error
+  console.log(err);
+});
 
 
 window.onload = () => {
@@ -82,7 +87,7 @@ window.onload = () => {
               let searchCountry = countryList[0][selectedCountry];
               let returnArray = window.indicatorsNames(searchCountry);
               for (let i = 0; i < returnArray.length; i++) {
-                document.getElementById('indicators').innerHTML += '<option value=' + i + '   id=indicators' + i + '>' + returnArray[i] + '<br>' + '</option>';
+                document.getElementById('indicators').innerHTML += '<option value=' + i + ' class= "countriesList"  id=indicators' + i + '>' + returnArray[i] + '<br>' + '</option>';
                 document.getElementById('mostrarTabla').style.display = 'none';
               }
 
@@ -162,7 +167,10 @@ window.onload = () => {
                         event.preventDefault();
                         let retornoDatosEnArray = window.dataGraphics(almacenarObjetoData);
                         window.retornoDatosEnArray=retornoDatosEnArray;
-                        
+
+
+                        //
+                        // document.getElementById("root2").innerHTML =
                         dibujar();
                         // window.google;
                         // window.google.charts.load('current',{packages:['corechart']});
